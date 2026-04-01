@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>AdVerse – Premium Classified Ads Marketplace</title>
+  <meta name="description"
+    content="AdVerse is the ultimate classified ads platform. Post free ads for jobs, real estate, vehicles, electronics & more." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFB800' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'></polygon></svg>" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+  <div class="overlay" id="overlay" onclick="closeMobileNav()"></div>
+
+  <nav class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav-close" onclick="closeMobileNav()"><i data-lucide="x"></i></button>
+    <ul>
+      <li>
+        <a href="#" onclick="toggleMobileSub('sub-home',event)">Home <i data-lucide="chevron-down"></i></a>
+        <ul class="mobile-sub" id="sub-home">
+          <li><a href="index.html" class="active">Home 1</a></li>
+          <li><a href="home2.html">Home 2</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li>
+        <a href="#" onclick="toggleMobileSub('sub-dash',event)">Dashboard <i data-lucide="chevron-down"></i></a>
+        <ul class="mobile-sub" id="sub-dash">
+          <li><a href="user-dashboard.html">User Dashboard</a></li>
+          <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+        </ul>
+      </li>
+      <li><a href="login.html" class="mobile-post-btn">Login</a></li>
+    </ul>
+  </nav>
+
+  <header class="header" id="mainHeader">
+    <a href="index.html" class="logo">
+      <div class="logo-icon"><i data-lucide="zap"></i></div>
+      <span class="logo-text">Ad<span>Verse</span></span>
+    </a>
+
+    <ul class="nav">
+      <li>
+        <a href="#" class="active">Home <i data-lucide="chevron-down" style="width:14px"></i></a>
+        <div class="dropdown">
+          <a href="index.html" class="active">Home 1</a>
+          <a href="home2.html">Home 2</a>
+        </div>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li>
+        <a href="#">Dashboard <i data-lucide="chevron-down" style="width:14px"></i></a>
+        <div class="dropdown">
+          <a href="user-dashboard.html">User Dashboard</a>
+          <a href="admin-dashboard.html">Admin Dashboard</a>
+        </div>
+      </li>
+    </ul>
+
+    <div class="header-right">
+      <button class="btn-globe" id="rtlToggle" onclick="toggleRTL()" title="Toggle RTL/LTR">
+        <i data-lucide="globe"></i>
+      </button>
+      <a href="login.html" class="btn-post" style="text-decoration: none;">Login</a>
+      <button class="hamburger" id="hamburger" onclick="openMobileNav()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-orb orb1"></div>
+    <div class="hero-orb orb2"></div>
+    <div class="hero-orb orb3"></div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-label"><i data-lucide="rocket"></i> #1 Classified Ads Platform</div>
+        <h1>Buy. Sell.<br /><span class="gradient-text">Discover Anything.</span></h1>
+        <p>Join millions of buyers and sellers on the most vibrant marketplace. Post your ads free, find amazing deals —
+          all in one place.</p>
+        <div class="hero-btns">
+          <a href="login.html" class="btn-primary"><i data-lucide="user"></i> Login</a>
+          <a href="#featured" class="btn-secondary">Browse Listings <i data-lucide="arrow-right"></i></a>
+        </div>
+        <div class="hero-search">
+          <div class="search-bar">
+            <i data-lucide="search" style="color:var(--text-muted)"></i>
+            <input type="text" placeholder="What are you looking for?" id="heroSearch" />
+            <button class="search-btn"><i data-lucide="search"></i> Search</button>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-img-wrap">
+          <img src="images/hero.png" alt="Marketplace" />
+          <div class="hero-badge badge-tl">
+            <span class="badge-num">50K+</span>
+            <span class="badge-label">Live Ads Today</span>
+          </div>
+          <div class="hero-badge badge-br">
+            <i data-lucide="star" style="color:var(--accent-gold)"></i>
+            <div>
+              <span class="badge-num">4.9</span>
+              <span class="badge-label">User Rating</span>
+            </div>
+          </div>
+        </div>
+        <div class="floating-tag"><i data-lucide="zap"></i> Trending Now</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker">
+    <div class="ticker-wrap">
+      <div class="ticker-item"><i data-lucide="home"></i> Real Estate <span class="ticker-dot"></span></div>
+      <div class="ticker-item"><i data-lucide="car"></i> Vehicles <span class="ticker-dot"></span></div>
+      <div class="ticker-item"><i data-lucide="laptop"></i> Electronics <span class="ticker-dot"></span></div>
+      <div class="ticker-item"><i data-lucide="shirt"></i> Fashion <span class="ticker-dot"></span></div>
+      <div class="ticker-item"><i data-lucide="briefcase"></i> Jobs <span class="ticker-dot"></span></div>
+      <div class="ticker-item"><i data-lucide="armchair"></i> Furniture <span class="ticker-dot"></span></div>
+      <div class="ticker-item"><i data-lucide="home"></i> Real Estate <span class="ticker-dot"></span></div>
+      <div class="ticker-item"><i data-lucide="car"></i> Vehicles <span class="ticker-dot"></span></div>
+    </div>
+  </div>
+
+  <section class="stats section-pad">
+    <div class="stats-inner">
+      <div class="stat-card reveal">
+        <div class="stat-icon"><i data-lucide="package"></i></div>
+        <span class="stat-num" data-target="2400000">0</span>
+        <span class="stat-label">Active Listings</span>
+      </div>
+      <div class="stat-card reveal delay-1">
+        <div class="stat-icon"><i data-lucide="users"></i></div>
+        <span class="stat-num" data-target="850000">0</span>
+        <span class="stat-label">Registered Users</span>
+      </div>
+      <div class="stat-card reveal delay-2">
+        <div class="stat-icon"><i data-lucide="map-pin"></i></div>
+        <span class="stat-num" data-target="120">0</span>
+        <span class="stat-label">Cities Covered</span>
+      </div>
+      <div class="stat-card reveal delay-3">
+        <div class="stat-icon"><i data-lucide="thumbs-up"></i></div>
+        <span class="stat-num" data-target="99">0</span>
+        <span class="stat-label">% Satisfaction Rate</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="categories section-pad" id="categories">
+    <div class="container">
+      <div class="section-header">
+        <div class="tag"><i data-lucide="grid"></i> Browse Categories</div>
+        <h2>Find What You <span class="gradient-text">Need Fast</span></h2>
+        <p>Explore thousands of listings across our most popular categories.</p>
+      </div>
+      <div class="cat-grid">
+        <a href="#" class="cat-card reveal">
+          <div class="cat-emoji"><img src="images/property.png" alt="Real Estate"></div>
+          <div class="cat-name">Real Estate</div>
+          <div class="cat-count">48K ads</div>
+        </a>
+        <a href="#" class="cat-card reveal delay-1">
+          <div class="cat-emoji"><img src="images/cars.png" alt="Vehicles"></div>
+          <div class="cat-name">Vehicles</div>
+          <div class="cat-count">32K ads</div>
+        </a>
+        <a href="#" class="cat-card reveal delay-2">
+          <div class="cat-emoji"><img
+              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=200&h=200&auto=format&fit=crop"
+              alt="Electronics"></div>
+          <div class="cat-name">Electronics</div>
+          <div class="cat-count">61K ads</div>
+        </a>
+        <a href="#" class="cat-card reveal delay-3">
+          <div class="cat-emoji"><img
+              src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=200&h=200&auto=format&fit=crop"
+              alt="Fashion"></div>
+          <div class="cat-name">Fashion</div>
+          <div class="cat-count">29K ads</div>
+        </a>
+        <a href="#" class="cat-card reveal delay-4">
+          <div class="cat-emoji"><img src="images/community.png" alt="Jobs"></div>
+          <div class="cat-name">Jobs</div>
+          <div class="cat-count">15K ads</div>
+        </a>
+        <a href="#" class="cat-card reveal delay-5">
+          <div class="cat-emoji"><img
+              src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=200&h=200&auto=format&fit=crop"
+              alt="Pets"></div>
+          <div class="cat-name">Pets</div>
+          <div class="cat-count">8K ads</div>
+        </a>
+        <a href="#" class="cat-card reveal">
+          <div class="cat-emoji"><img
+              src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=200&h=200&auto=format&fit=crop"
+              alt="Furniture"></div>
+          <div class="cat-name">Furniture</div>
+          <div class="cat-count">22K ads</div>
+        </a>
+        <a href="#" class="cat-card reveal delay-1">
+          <div class="cat-emoji"><img
+              src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=200&h=200&auto=format&fit=crop"
+              alt="Gaming"></div>
+          <div class="cat-name">Gaming</div>
+          <div class="cat-count">18K ads</div>
+        </a>
+        <a href="#" class="cat-card reveal delay-2">
+          <div class="cat-emoji"><img
+              src="images/c4.jpg"
+              alt="Hobbies"></div>
+          <div class="cat-name">Hobbies</div>
+          <div class="cat-count">12K ads</div>
+        </a>
+        <a href="#" class="cat-card reveal delay-3">
+          <div class="cat-emoji"><img
+              src="images/c6.jpg"
+              alt="Services"></div>
+          <div class="cat-name">Services</div>
+          <div class="cat-count">35K ads</div>
+        </a>
+        <a href="#" class="cat-card reveal delay-4">
+          <div class="cat-emoji"><img
+              src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=200&h=200&auto=format&fit=crop"
+              alt="Music"></div>
+          <div class="cat-name">Music</div>
+          <div class="cat-count">9K ads</div>
+        </a>
+        <a href="#" class="cat-card reveal delay-5">
+          <div class="cat-emoji"><img
+              src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=200&h=200&auto=format&fit=crop"
+              alt="Photography"></div>
+          <div class="cat-name">Photography</div>
+          <div class="cat-count">7K ads</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured section-pad" id="featured">
+    <div class="container">
+      <div class="section-header">
+        <div class="tag"><i data-lucide="sparkles"></i> Spotlight Listings</div>
+        <h2>Featured <span class="gradient-text">Ads</span></h2>
+        <p>Handpicked premium listings from verified sellers across the platform.</p>
+      </div>
+      <div class="ads-grid">
+        <div class="ad-card reveal">
+          <img class="ad-img" src="images/villa.jpg" alt="Modern Villa">
+          <div class="ad-body">
+            <span class="ad-badge badge-hot"><i data-lucide="flame" style="width:12px"></i> Hot</span>
+            <div class="ad-title">Modern Villa with Pool</div>
+            <div class="ad-price">$850,000</div>
+            <div class="ad-meta">
+              <span><i data-lucide="map-pin" style="width:12px"></i> Miami, FL</span>
+              <span><i data-lucide="clock" style="width:12px"></i> 2h ago</span>
+            </div>
+          </div>
+        </div>
+        <div class="ad-card reveal delay-1">
+          <img class="ad-img" src="images/tesla.jpeg" alt="Tesla S Plaid">
+          <div class="ad-body">
+            <span class="ad-badge badge-top"><i data-lucide="award" style="width:12px"></i> Top Rated</span>
+            <div class="ad-title">Tesla Model S Plaid 2023</div>
+            <div class="ad-price">$89,000</div>
+            <div class="ad-meta">
+              <span><i data-lucide="map-pin" style="width:12px"></i> Austin, TX</span>
+              <span><i data-lucide="clock" style="width:12px"></i> 5h ago</span>
+            </div>
+          </div>
+        </div>
+        <div class="ad-card reveal delay-2">
+          <img class="ad-img" src="images/mac.png" alt="MacBook Pro">
+          <div class="ad-body">
+            <span class="ad-badge badge-new"><i data-lucide="zap" style="width:12px"></i> New</span>
+            <div class="ad-title">MacBook Pro M3 Max</div>
+            <div class="ad-price">$3,499</div>
+            <div class="ad-meta">
+              <span><i data-lucide="map-pin" style="width:12px"></i> NY, USA</span>
+              <span><i data-lucide="clock" style="width:12px"></i> 10m ago</span>
+            </div>
+          </div>
+        </div>
+        <div class="ad-card reveal delay-3">
+          <img class="ad-img" src="images/rolex.jpg" alt="Rolex Submariner">
+          <div class="ad-body">
+            <span class="ad-badge badge-hot"><i data-lucide="trending-up" style="width:12px"></i> Trending</span>
+            <div class="ad-title">Rolex Submariner Date</div>
+            <div class="ad-price">$12,500</div>
+            <div class="ad-meta">
+              <span><i data-lucide="map-pin" style="width:12px"></i> Dubai, UAE</span>
+              <span><i data-lucide="clock" style="width:12px"></i> 1h ago</span>
+            </div>
+          </div>
+        </div>
+        <div class="ad-card reveal">
+          <img class="ad-img" src="images/canon.avif" alt="Canon R5">
+          <div class="ad-body">
+            <span class="ad-badge badge-new"><i data-lucide="zap" style="width:12px"></i> New</span>
+            <div class="ad-title">Canon EOS R5 Mirrorless</div>
+            <div class="ad-price">$3,899</div>
+            <div class="ad-meta">
+              <span><i data-lucide="map-pin" style="width:12px"></i> London, UK</span>
+              <span><i data-lucide="clock" style="width:12px"></i> 3h ago</span>
+            </div>
+          </div>
+        </div>
+        <div class="ad-card reveal delay-1">
+          <img class="ad-img" src="images/air.webp" alt="AirPods Max">
+          <div class="ad-body">
+            <span class="ad-badge badge-top"><i data-lucide="award" style="width:12px"></i> Pick</span>
+            <div class="ad-title">AirPods Max - Silver</div>
+            <div class="ad-price">$549</div>
+            <div class="ad-meta">
+              <span><i data-lucide="map-pin" style="width:12px"></i> Paris, FR</span>
+              <span><i data-lucide="clock" style="width:12px"></i> 6h ago</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="how section-pad">
+    <div class="container">
+      <div class="section-header">
+        <div class="tag"><i data-lucide="info"></i> Simple Guide</div>
+        <h2>How It <span class="gradient-text">Works</span></h2>
+        <p>Follow these simple steps to start buying or selling.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-icon"><i data-lucide="user-plus"></i><span class="step-num">1</span></div>
+          <h3>Create Account</h3>
+          <p>Sign up now to access your personal dashboard.</p>
+        </div>
+        <div class="step reveal delay-1">
+          <div class="step-icon"><i data-lucide="plus-square"></i><span class="step-num">2</span></div>
+          <h3>Post Ad</h3>
+          <p>List your items with photos and detailed info.</p>
+        </div>
+        <div class="step reveal delay-2">
+          <div class="step-icon"><i data-lucide="message-circle"></i><span class="step-num">3</span></div>
+          <h3>Connect</h3>
+          <p>Communicate securely with potential buyers.</p>
+        </div>
+        <div class="step reveal delay-3">
+          <div class="step-icon"><i data-lucide="check-circle"></i><span class="step-num">4</span></div>
+          <h3>Deal Success</h3>
+          <p>Close the deal and get paid safely.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-split section-pad">
+    <div class="split-inner container">
+      <div class="split-img reveal-left">
+        <img src="images/community.png" alt="Community" />
+      </div>
+      <div class="split-content reveal-right">
+        <div class="tag"><i data-lucide="users"></i> Global Trust</div>
+        <h2>Our Thriving <span class="gradient-text">Community</span></h2>
+        <p>Connect with over 1 million active users globally. Our platform ensures every interaction is safe and
+          transparent.</p>
+        <ul class="feature-list">
+          <li><strong>Verified Sellers:</strong> We manually vet top sellers for your peace of mind.</li>
+          <li><strong>Secure Chat:</strong> End-to-end encrypted messaging system.</li>
+          <li><strong>Real-time Notifications:</strong> Never miss a bid or a message.</li>
+        </ul>
+        <div style="margin-top: 30px;">
+          <a href="#" class="btn-primary">Join Community <i data-lucide="arrow-right" style="width:16px"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trending section-pad">
+    <div class="container">
+      <div class="section-header">
+        <div class="tag"><i data-lucide="bar-chart-2"></i> Popular Choice</div>
+        <h2>What's <span class="gradient-text-2">Selling Fast</span></h2>
+        <p>Join the trend and explore items that are disappearing quickly.</p>
+      </div>
+    </div>
+    <div class="trending-scroll">
+      <div class="trend-card">
+        <div class="trend-img"><img src="images/iphone 15.jpg" alt="iPhone 15"></div>
+        <div class="trend-body">
+          <div class="trend-price">$999</div>
+          <div class="trend-title">iPhone 15 Pro Max</div>
+          <div class="trend-loc"><i data-lucide="map-pin" style="width:10px"></i> LA, USA</div>
+        </div>
+      </div>
+      <div class="trend-card">
+        <div class="trend-img"><img src="images/kawasaki.webp" alt="Kawasaki"></div>
+        <div class="trend-body">
+          <div class="trend-price">$4,500</div>
+          <div class="trend-title">Kawasaki Ninja 400</div>
+          <div class="trend-loc"><i data-lucide="map-pin" style="width:10px"></i> Texas</div>
+        </div>
+      </div>
+      <div class="trend-card">
+        <div class="trend-img"><img src="images/head.jpg" alt="Sony Headphones"></div>
+        <div class="trend-body">
+          <div class="trend-price">$299</div>
+          <div class="trend-title">Sony WH-1000XM5</div>
+          <div class="trend-loc"><i data-lucide="map-pin" style="width:10px"></i> London, UK</div>
+        </div>
+      </div>
+      <div class="trend-card">
+        <div class="trend-img"><img src="images/alpha.jpg" alt="Sony Alpha"></div>
+        <div class="trend-body">
+          <div class="trend-price">$2,100</div>
+          <div class="trend-title">Sony Alpha A7 IV</div>
+          <div class="trend-loc"><i data-lucide="map-pin" style="width:10px"></i> Tokyo, JP</div>
+        </div>
+      </div>
+      <div class="trend-card">
+        <div class="trend-img"><img src="https://images.unsplash.com/photo-1551816230-ef5deaed4a26?auto=format&fit=crop&w=300&q=80" alt="Apple Watch"></div>
+        <div class="trend-body">
+          <div class="trend-price">$450</div>
+          <div class="trend-title">Apple Watch Ultra</div>
+          <div class="trend-loc"><i data-lucide="map-pin" style="width:10px"></i> Berlin, DE</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-split2 section-pad">
+    <div class="split-inner container">
+      <div class="split-content reveal-left">
+        <div class="tag"><i data-lucide="car"></i> Auto Zone</div>
+        <h2>Premium <span class="gradient-text">Vehicle Market</span></h2>
+        <p>From luxury sedans to rugged off-roaders, find your perfect ride with verified paperwork and detailed
+          history.</p>
+        <ul class="feature-list">
+          <li><strong>Free Inspections:</strong> Complimentary basic check for featured cars.</li>
+          <li><strong>Price Compare:</strong> Compare deals from multiple local dealers.</li>
+          <li><strong>Direct Finance:</strong> Easy loan options available on the platform.</li>
+        </ul>
+        <div style="margin-top: 30px;">
+          <a href="#" class="btn-primary">Browse Vehicles</a>
+        </div>
+      </div>
+      <div class="split-img reveal-right">
+        <img src="images/cars.png" alt="Vehicles" />
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials section-pad">
+    <div class="container">
+      <div class="section-header">
+        <div class="tag"><i data-lucide="message-square"></i> Voice of Users</div>
+        <h2>What People <span class="gradient-text">Believe</span></h2>
+      </div>
+    </div>
+    <div class="testi-slider">
+      <div class="testi-card reveal">
+        <div class="star-row">
+          <span><i data-lucide="star" style="width:14px"></i></span>
+          <span><i data-lucide="star" style="width:14px"></i></span>
+          <span><i data-lucide="star" style="width:14px"></i></span>
+          <span><i data-lucide="star" style="width:14px"></i></span>
+          <span><i data-lucide="star" style="width:14px"></i></span>
+        </div>
+        <p class="testi-text">"Sold my old DSLR in just 3 hours. The UI is so clean compared to other platforms."</p>
+        <div class="testi-author">
+          <div class="author-avatar"><i data-lucide="user"></i></div>
+          <div>
+            <div class="author-name">David Smith</div>
+            <div class="author-role">Photographer · Chicago</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal delay-1">
+        <div class="star-row">
+          <span><i data-lucide="star" style="width:14px"></i></span>
+          <span><i data-lucide="star" style="width:14px"></i></span>
+          <span><i data-lucide="star" style="width:14px"></i></span>
+          <span><i data-lucide="star" style="width:14px"></i></span>
+          <span><i data-lucide="star" style="width:14px"></i></span>
+        </div>
+        <p class="testi-text">"Found my dream apartment within a week. The verified listings really save time."</p>
+        <div class="testi-author">
+          <div class="author-avatar"><i data-lucide="user"></i></div>
+          <div>
+            <div class="author-name">Elena Rodriguez</div>
+            <div class="author-role">Software Engineer · Seattle</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal delay-2">
+        <div class="star-row">
+          <span><i data-lucide="star" style="width:14px"></i></span>
+          <span><i data-lucide="star" style="width:14px"></i></span>
+          <span><i data-lucide="star" style="width:14px"></i></span>
+          <span><i data-lucide="star" style="width:14px"></i></span>
+          <span><i data-lucide="star" style="width:14px"></i></span>
+        </div>
+        <p class="testi-text">"A great way to declutter and make some extra cash easily. Highly intuitive!"</p>
+        <div class="testi-author">
+          <div class="author-avatar"><i data-lucide="user"></i></div>
+          <div>
+            <div class="author-name">James Bond</div>
+            <div class="author-role">Business Owner · NY</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal delay-3">
+        <div class="star-row">
+          <span><i data-lucide="star" style="width:14px"></i></span>
+          <span><i data-lucide="star" style="width:14px"></i></span>
+          <span><i data-lucide="star" style="width:14px"></i></span>
+          <span><i data-lucide="star" style="width:14px"></i></span>
+          <span><i data-lucide="star" style="width:14px"></i></span>
+        </div>
+        <p class="testi-text">"The dashboard analytics helped me track which ads were performing best. Brilliant!"</p>
+        <div class="testi-author">
+          <div class="author-avatar"><i data-lucide="user"></i></div>
+          <div>
+            <div class="author-name">Sarah Jenkins</div>
+            <div class="author-role">Verified Seller · Austin</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal delay-4">
+        <div class="star-row">
+          <span><i data-lucide="star" style="width:14px"></i></span>
+          <span><i data-lucide="star" style="width:14px"></i></span>
+          <span><i data-lucide="star" style="width:14px"></i></span>
+          <span><i data-lucide="star" style="width:14px"></i></span>
+          <span><i data-lucide="star" style="width:14px"></i></span>
+        </div>
+        <p class="testi-text">"Found reliable home services for my renovation project. The reviews are genuine."</p>
+        <div class="testi-author">
+          <div class="author-avatar"><i data-lucide="user"></i></div>
+          <div>
+            <div class="author-name">Michael Chen</div>
+            <div class="author-role">Home Owner · Vancouver</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal delay-5">
+        <div class="star-row">
+          <span><i data-lucide="star" style="width:14px"></i></span>
+          <span><i data-lucide="star" style="width:14px"></i></span>
+          <span><i data-lucide="star" style="width:14px"></i></span>
+          <span><i data-lucide="star" style="width:14px"></i></span>
+          <span><i data-lucide="star" style="width:14px"></i></span>
+        </div>
+        <p class="testi-text">"Listing items is so fast on the mobile app. I sold my old sofa while on my lunch break!"
+        </p>
+        <div class="testi-author">
+          <div class="author-avatar"><i data-lucide="user"></i></div>
+          <div>
+            <div class="author-name">Lisa Ray</div>
+            <div class="author-role">Marketing Exec · Sydney</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing section-pad">
+    <div class="container">
+      <div class="section-header">
+        <div class="tag"><i data-lucide="diamond"></i> Premium Growth</div>
+        <h2>Choose Your <span class="gradient-text">Level</span></h2>
+        <p>Scale your business with our tailored advertising plans.</p>
+      </div>
+      <div class="price-grid">
+        <div class="price-card reveal">
+          <div class="price-label">Starter</div>
+          <div class="price-amount"><sub>$</sub>0</div>
+          <div class="price-period">Forever Free</div>
+          <ul class="price-features">
+            <li class="yes">5 Active Listings</li>
+            <li class="yes">Standard Support</li>
+            <li class="no">Priority Placement</li>
+            <li class="no">Badge of Trust</li>
+          </ul>
+          <button class="price-btn">Get Started</button>
+        </div>
+        <div class="price-card popular reveal delay-1">
+          <div class="popular-badge">⭐ BEST VALUE</div>
+          <div class="price-label">Pro Seller</div>
+          <div class="price-amount"><sub>$</sub>29</div>
+          <div class="price-period">Per Month</div>
+          <ul class="price-features">
+            <li class="yes">50 Active Listings</li>
+            <li class="yes">Priority Support</li>
+            <li class="yes">Highlighted Ads</li>
+            <li class="no">Expert Consulting</li>
+          </ul>
+          <button class="price-btn">Start 14-Day Trial</button>
+        </div>
+        <div class="price-card reveal delay-2">
+          <div class="price-label">Enterprise</div>
+          <div class="price-amount"><sub>$</sub>99</div>
+          <div class="price-period">Per Month</div>
+          <ul class="price-features">
+            <li class="yes">Unlimited Ads</li>
+            <li class="yes">Dedicated Manager</li>
+            <li class="yes">API Access</li>
+            <li class="yes">Full Analytics</li>
+          </ul>
+          <button class="price-btn">Contact Sales</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="app-section section-pad">
+    <div class="app-inner">
+      <div class="app-phones reveal-left">
+        <div class="phone-mockup phone1"><img src="images/c5.webp" alt="UI Layout"
+            style="width: 100%; height: 100%; object-fit: cover; border-radius: 28px;"></div>
+        <div class="phone-mockup phone2"><img src="images/c7.png" alt="Search UI"
+            style="width: 100%; height: 100%; object-fit: cover; border-radius: 28px;"></div>
+        <div class="phone-mockup phone-center"><img src="images/c6.jpg" alt="Logo"
+            style="width: 100%; height: 100%; object-fit: cover; border-radius: 28px;"></div>
+      </div>
+      <div class="reveal-right">
+        <div class="tag"><i data-lucide="smartphone"></i> Mobility</div>
+        <h2>Market in Your <span class="gradient-text">Pocket</span></h2>
+        <p>Download our mobile app to get instant alerts on deals, chat on the go, and post ads in seconds.</p>
+        <div class="app-badges">
+          <div class="app-badge">
+            <div class="app-badge-icon"><i data-lucide="apple"></i></div>
+            <div class="app-badge-text"><small>Download on</small><strong>App Store</strong></div>
+          </div>
+          <div class="app-badge">
+            <div class="app-badge-icon"><i data-lucide="play"></i></div>
+            <div class="app-badge-text"><small>Get it on</small><strong>Google Play</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="community section-pad">
+    <div class="container">
+      <div class="section-header">
+        <div class="tag"><i data-lucide="heart"></i> Seller Showcase</div>
+        <h2>Our Verified <span class="gradient-text">Success Stories</span></h2>
+      </div>
+      <div class="split-inner container">
+        <div class="split-img reveal-left">
+          <img src="images/community.png" alt="Success" />
+          <div class="community-overlay"></div>
+        </div>
+        <div class="split-content reveal-right">
+          <div class="community-points">
+            <div class="cp-item">
+              <div class="cp-icon"><i data-lucide="check-circle" style="color:var(--accent-mint)"></i></div>
+              <div class="cp-text"><strong>98% Rating</strong><span>Average seller satisfaction</span></div>
+            </div>
+            <div class="cp-item">
+              <div class="cp-icon"><i data-lucide="globe" style="color:var(--accent-blue)"></i></div>
+              <div class="cp-text"><strong>120+ Cities</strong><span>Active across the nation</span></div>
+            </div>
+            <div class="cp-item">
+              <div class="cp-icon"><i data-lucide="shield" style="color:var(--accent-gold)"></i></div>
+              <div class="cp-text"><strong>Fraud Protection</strong><span>AI-driven security system</span></div>
+            </div>
+            <div class="cp-item">
+              <div class="cp-icon"><i data-lucide="clock" style="color:var(--accent-purple)"></i></div>
+              <div class="cp-text"><strong>24/7 Support</strong><span>Human help always ready</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="recent section-pad">
+    <div class="container">
+      <div class="section-header">
+        <div class="tag"><i data-lucide="list"></i> New Arrivals</div>
+        <h2>Latest <span class="gradient-text">Postings</span></h2>
+      </div>
+      <div class="recent-table">
+        <div class="recent-item reveal">
+          <div class="recent-emoji"><i data-lucide="monitor"></i></div>
+          <div class="recent-info">
+            <h4>Gaming PC - RTX 4070</h4><span>Electronics · Desktop</span>
+          </div>
+          <div class="recent-price">$1,200</div>
+          <div class="recent-loc"><i data-lucide="map-pin"></i> Chicago</div>
+          <div class="recent-time">2 mins ago</div>
+        </div>
+        <div class="recent-item reveal delay-1">
+          <div class="recent-emoji"><i data-lucide="armchair"></i></div>
+          <div class="recent-info">
+            <h4>Velvet Sofa (Gray)</h4><span>Furniture · Living Room</span>
+          </div>
+          <div class="recent-price">$450</div>
+          <div class="recent-loc"><i data-lucide="map-pin"></i> Austin</div>
+          <div class="recent-time">15 mins ago</div>
+        </div>
+        <div class="recent-item reveal delay-2">
+          <div class="recent-emoji"><i data-lucide="briefcase"></i></div>
+          <div class="recent-info">
+            <h4>Marketing Manager</h4><span>Jobs · Full-time</span>
+          </div>
+          <div class="recent-price">$85K/yr</div>
+          <div class="recent-loc"><i data-lucide="map-pin"></i> Remote</div>
+          <div class="recent-time">1h ago</div>
+        </div>
+        <div class="recent-item reveal delay-3">
+          <div class="recent-emoji"><i data-lucide="car"></i></div>
+          <div class="recent-info">
+            <h4>BMW M4 Competition</h4><span>Vehicles · Coupé</span>
+          </div>
+          <div class="recent-price">$72,000</div>
+          <div class="recent-loc"><i data-lucide="map-pin"></i> Miami</div>
+          <div class="recent-time">3h ago</div>
+        </div>
+        <div class="recent-item reveal delay-4">
+          <div class="recent-emoji"><i data-lucide="home"></i></div>
+          <div class="recent-info">
+            <h4>Luxury Penthouse</h4><span>Real Estate · Loft</span>
+          </div>
+          <div class="recent-price">$2.5M</div>
+          <div class="recent-loc"><i data-lucide="map-pin"></i> NYC</div>
+          <div class="recent-time">5h ago</div>
+        </div>
+        <div class="recent-item reveal delay-5">
+          <div class="recent-emoji"><i data-lucide="smartphone"></i></div>
+          <div class="recent-info">
+            <h4>iPhone 15 Pro 256GB</h4><span>Electronics · Mobile</span>
+          </div>
+          <div class="recent-price">$950</div>
+          <div class="recent-loc"><i data-lucide="map-pin"></i> Seattle</div>
+          <div class="recent-time">8h ago</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why section-pad">
+    <div class="container">
+      <div class="section-header">
+        <div class="tag"><i data-lucide="award"></i> Our Edge</div>
+        <h2>Why Choose <span class="gradient-text">AdVerse</span></h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-icon"><i data-lucide="zap"></i></div>
+          <h3>Lightning Fast</h3>
+          <p>Optimized platform for zero-lag browsing and instant posting experience.</p>
+        </div>
+        <div class="why-card reveal delay-1">
+          <div class="why-icon"><i data-lucide="shield-check"></i></div>
+          <h3>Safe & Secure</h3>
+          <p>End-to-end security protocols to protect your transactions and identity.</p>
+        </div>
+        <div class="why-card reveal delay-2">
+          <div class="why-icon"><i data-lucide="navigation"></i></div>
+          <h3>Smart Search</h3>
+          <p>AI-powered search filters help you find exactly what you need in seconds.</p>
+        </div>
+        <div class="why-card reveal delay-3">
+          <div class="why-icon"><i data-lucide="award"></i></div>
+          <h3>Verified Sellers</h3>
+          <p>We verify every pro seller to ensure you get authentic products every time.</p>
+        </div>
+        <div class="why-card reveal delay-4">
+          <div class="why-icon"><i data-lucide="globe"></i></div>
+          <h3>Wide Reach</h3>
+          <p>Over 120 cities covered, bringing local deals directly to your doorstep.</p>
+        </div>
+        <div class="why-card reveal delay-5">
+          <div class="why-icon"><i data-lucide="heart"></i></div>
+          <h3>Top Support</h3>
+          <p>Our dedicated team is available 24/7 to help you with any queries.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust section-pad">
+    <div class="trust-inner container">
+      <div class="reveal-left">
+        <div class="tag"><i data-lucide="shield"></i> Safety First</div>
+        <h2>Your Trust Is Our <span class="gradient-text">Main Asset</span></h2>
+        <p>We invest heavily in security technology to ensure a scam-free environment for all our users.</p>
+      </div>
+      <div class="trust-badges reveal-right">
+        <div class="trust-badge">
+          <div class="trust-badge-icon"><i data-lucide="lock" style="color:var(--accent-mint)"></i></div>
+          <h4>SSL Encrypted</h4>
+          <p>All data is secured.</p>
+        </div>
+        <div class="trust-badge">
+          <div class="trust-badge-icon"><i data-lucide="check-square" style="color:var(--accent-gold)"></i></div>
+          <h4>ID Verified</h4>
+          <p>Manual verification.</p>
+        </div>
+        <div class="trust-badge">
+          <div class="trust-badge-icon"><i data-lucide="user-check" style="color:var(--accent-purple)"></i></div>
+          <h4>Scam Protection</h4>
+          <p>AI-driven filters.</p>
+        </div>
+        <div class="trust-badge">
+          <div class="trust-badge-icon"><i data-lucide="refresh-cw" style="color:var(--accent-blue)"></i></div>
+          <h4>Fast Updates</h4>
+          <p>Real-time listings.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq section-pad">
+    <div class="container">
+      <div class="faq-inner">
+        <div class="reveal-left">
+          <div class="tag"><i data-lucide="help-circle"></i> FAQ Center</div>
+          <h2>Need <span class="gradient-text">Answers?</span></h2>
+          <p>Frequently asked questions about buying, selling, and account security.</p>
+        </div>
+        <div class="faq-list reveal-right">
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFAQ(this)">How do I post a free ad? <div class="faq-icon">+</div>
+            </button>
+            <div class="faq-a">
+              <p>Simply click the "Login" button in the header, choose your category, add photos and description,
+                and your ad will be live in minutes!</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFAQ(this)">Is my data safe here? <div class="faq-icon">+</div></button>
+            <div class="faq-a">
+              <p>Absolutely. We use industry-standard encryption and security protocols to ensure your data and messages
+                remain private.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFAQ(this)">Can I edit my ad later? <div class="faq-icon">+</div>
+            </button>
+            <div class="faq-a">
+              <p>Yes, you can edit your listings anytime through your User Dashboard. Updates reflect instantly on the
+                marketplace.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFAQ(this)">What are premium ads? <div class="faq-icon">+</div></button>
+            <div class="faq-a">
+              <p>Premium ads get better visibility, highlighted styling, and appear at the top of search results,
+                helping you sell up to 5x faster.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFAQ(this)">How do I contact a seller? <div class="faq-icon">+</div>
+            </button>
+            <div class="faq-a">
+              <p>On every ad page, you'll find a "Chat" or "Reveal Number" button. We recommend using our secure chat
+                system for initial contact.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFAQ(this)">Are there any posting fees? <div class="faq-icon">+</div>
+            </button>
+            <div class="faq-a">
+              <p>Basic ads are 100% free forever. We only charge for optional promotions like "Top Ads" or "Featured"
+                placements.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter section-pad">
+    <div class="newsletter-box reveal">
+      <h2>Join the <span class="gradient-text">Insider List</span></h2>
+      <p>Subscribe to our newsletter and get the latest deals directly in your inbox.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="Enter your email address" />
+        <button class="search-btn">Subscribe</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="sellers-marquee section-pad">
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <div class="seller-chip">
+          <div class="seller-avatar">M</div>
+          <div class="seller-info"><strong>Marco Polo</strong><small>Electronics Seller</small></div><span
+            class="seller-rating">⭐ 4.9</span>
+        </div>
+        <div class="seller-chip">
+          <div class="seller-avatar" style="background:var(--accent-mint); color:#000;">S</div>
+          <div class="seller-info"><strong>Sarah J.</strong><small>Furniture Expert</small></div><span
+            class="seller-rating">⭐ 5.0</span>
+        </div>
+        <div class="seller-chip">
+          <div class="seller-avatar" style="background:var(--accent-pink);">A</div>
+          <div class="seller-info"><strong>Alex Ross</strong><small>Vehicle Dealer</small></div><span
+            class="seller-rating">⭐ 4.8</span>
+        </div>
+        <div class="seller-chip">
+          <div class="seller-avatar">M</div>
+          <div class="seller-info"><strong>Marco Polo</strong><small>Electronics Seller</small></div><span
+            class="seller-rating">⭐ 4.9</span>
+        </div>
+        <div class="seller-chip">
+          <div class="seller-avatar" style="background:var(--accent-mint); color:#000;">S</div>
+          <div class="seller-info"><strong>Sarah J.</strong><small>Furniture Expert</small></div><span
+            class="seller-rating">⭐ 5.0</span>
+        </div>
+        <!-- Duplicate for seamless loop -->
+        <div class="seller-chip">
+          <div class="seller-avatar">M</div>
+          <div class="seller-info"><strong>Marco Polo</strong><small>Electronics Seller</small></div><span
+            class="seller-rating">⭐ 4.9</span>
+        </div>
+        <div class="seller-chip">
+          <div class="seller-avatar" style="background:var(--accent-mint); color:#000;">S</div>
+          <div class="seller-info"><strong>Sarah J.</strong><small>Furniture Expert</small></div><span
+            class="seller-rating">⭐ 5.0</span>
+        </div>
+        <div class="seller-chip">
+          <div class="seller-avatar" style="background:var(--accent-pink);">A</div>
+          <div class="seller-info"><strong>Alex Ross</strong><small>Vehicle Dealer</small></div><span
+            class="seller-rating">⭐ 4.8</span>
+        </div>
+        <div class="seller-chip">
+          <div class="seller-avatar">M</div>
+          <div class="seller-info"><strong>Marco Polo</strong><small>Electronics Seller</small></div><span
+            class="seller-rating">⭐ 4.9</span>
+        </div>
+        <div class="seller-chip">
+          <div class="seller-avatar" style="background:var(--accent-mint); color:#000;">S</div>
+          <div class="seller-info"><strong>Sarah J.</strong><small>Furniture Expert</small></div><span
+            class="seller-rating">⭐ 5.0</span>
+        </div>
+      </div>
+      <div class="marquee-track rev">
+        <div class="seller-chip">
+          <div class="seller-avatar">B</div>
+          <div class="seller-info"><strong>Bella Thorne</strong><small>Fashion Guru</small></div><span
+            class="seller-rating">⭐ 4.7</span>
+        </div>
+        <div class="seller-chip">
+          <div class="seller-avatar" style="background:var(--accent-gold); color:#000;">K</div>
+          <div class="seller-info"><strong>Kevin Heart</strong><small>Tech Seller</small></div><span
+            class="seller-rating">⭐ 4.9</span>
+        </div>
+        <div class="seller-chip">
+          <div class="seller-avatar">D</div>
+          <div class="seller-info"><strong>Diana Prince</strong><small>Arts & Hobbies</small></div><span
+            class="seller-rating">⭐ 5.0</span>
+        </div>
+        <div class="seller-chip">
+          <div class="seller-avatar">B</div>
+          <div class="seller-info"><strong>Bella Thorne</strong><small>Fashion Guru</small></div><span
+            class="seller-rating">⭐ 4.7</span>
+        </div>
+        <div class="seller-chip">
+          <div class="seller-avatar" style="background:var(--accent-gold); color:#000;">K</div>
+          <div class="seller-info"><strong>Kevin Heart</strong><small>Tech Seller</small></div><span
+            class="seller-rating">⭐ 4.9</span>
+        </div>
+        <!-- Duplicate for seamless loop -->
+        <div class="seller-chip">
+          <div class="seller-avatar">B</div>
+          <div class="seller-info"><strong>Bella Thorne</strong><small>Fashion Guru</small></div><span
+            class="seller-rating">⭐ 4.7</span>
+        </div>
+        <div class="seller-chip">
+          <div class="seller-avatar" style="background:var(--accent-gold); color:#000;">K</div>
+          <div class="seller-info"><strong>Kevin Heart</strong><small>Tech Seller</small></div><span
+            class="seller-rating">⭐ 4.9</span>
+        </div>
+        <div class="seller-chip">
+          <div class="seller-avatar">D</div>
+          <div class="seller-info"><strong>Diana Prince</strong><small>Arts & Hobbies</small></div><span
+            class="seller-rating">⭐ 5.0</span>
+        </div>
+        <div class="seller-chip">
+          <div class="seller-avatar">B</div>
+          <div class="seller-info"><strong>Bella Thorne</strong><small>Fashion Guru</small></div><span
+            class="seller-rating">⭐ 4.7</span>
+        </div>
+        <div class="seller-chip">
+          <div class="seller-avatar" style="background:var(--accent-gold); color:#000;">K</div>
+          <div class="seller-info"><strong>Kevin Heart</strong><small>Tech Seller</small></div><span
+            class="seller-rating">⭐ 4.9</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-final section-pad">
+    <div class="cta-spark spark1"></div>
+    <div class="cta-spark spark2"></div>
+    <div class="cta-spark spark3"></div>
+    <div class="cta-spark spark4"></div>
+    <div class="cta-spark spark5"></div>
+    <h2 class="reveal">Ready to Start <span class="gradient-text">Earning?</span></h2>
+    <p class="reveal delay-1">Join over 500,000 successful sellers on the world's most premium marketplace.</p>
+    <div class="hero-btns reveal delay-2" style="justify-content: center; margin-top: 40px;">
+      <a href="login.html" class="btn-primary">Login Now</a>
+      <a href="#" class="btn-secondary">Explore Plans</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner container">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" style="margin-bottom: 20px;">
+          <div class="logo-icon"><i data-lucide="zap"></i></div>
+          <span class="logo-text">Ad<span>Verse</span></span>
+        </a>
+        <p style="font-size: 14px; color: var(--text-muted);">The world's most trusted classified ads marketplace for
+          premium goods and services.</p>
+      </div>
+      <div class="footer-links">
+        <h4 style="margin-bottom: 20px; font-size: 16px;">Quick Links</h4>
+        <ul style="list-style: none; display: grid; gap: 10px; font-size: 14px; color: var(--text-muted);">
+          <li><a href="#" style="color: inherit; text-decoration: none;">Featured Ads</a></li>
+          <li><a href="#" style="color: inherit; text-decoration: none;">Trending Deals</a></li>
+          <li><a href="#" style="color: inherit; text-decoration: none;">Safety Guide</a></li>
+          <li><a href="#" style="color: inherit; text-decoration: none;">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4 style="margin-bottom: 20px; font-size: 16px;">Support</h4>
+        <ul style="list-style: none; display: grid; gap: 10px; font-size: 14px; color: var(--text-muted);">
+          <li><a href="#" style="color: inherit; text-decoration: none;">Help Center</a></li>
+          <li><a href="#" style="color: inherit; text-decoration: none;">Terms of Use</a></li>
+          <li><a href="#" style="color: inherit; text-decoration: none;">Privacy Policy</a></li>
+          <li><a href="#" style="color: inherit; text-decoration: none;">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4 style="margin-bottom: 20px; font-size: 16px;">Social</h4>
+        <div style="display: flex; gap: 10px;">
+          <a href="#"
+            style="width: 36px; height: 36px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: var(--transition);"
+            onmouseover="this.style.color='var(--accent-gold)'" onmouseout="this.style.color='var(--text-muted)'"><i
+              data-lucide="facebook"></i></a>
+          <a href="#"
+            style="width: 36px; height: 36px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: var(--transition);"
+            onmouseover="this.style.color='var(--accent-gold)'" onmouseout="this.style.color='var(--text-muted)'"><i
+              data-lucide="twitter"></i></a>
+          <a href="#"
+            style="width: 36px; height: 36px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: var(--transition);"
+            onmouseover="this.style.color='var(--accent-gold)'" onmouseout="this.style.color='var(--text-muted)'"><i
+              data-lucide="instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    <div
+      style="border-top: 1px solid var(--border); padding: 30px 0; text-align: center; color: var(--text-muted); font-size: 13px;">
+      &copy; 2026 AdVerse Marketplace. All rights reserved. Designed with 💜 for the future of commerce.
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    function toggleRTL() {
+      const body = document.body;
+      body.classList.toggle('rtl');
+      document.getElementById('html-root').setAttribute('dir', body.classList.contains('rtl') ? 'rtl' : 'ltr');
+    }
+    function openMobileNav() {
+      document.getElementById('mobileNav').classList.add('open');
+      document.getElementById('overlay').classList.add('open');
+    }
+    function closeMobileNav() {
+      document.getElementById('mobileNav').classList.remove('open');
+      document.getElementById('overlay').classList.remove('open');
+    }
+    function toggleMobileSub(id, e) {
+      e.preventDefault();
+      document.getElementById(id).classList.toggle('open');
+    }
+    function toggleFAQ(btn) {
+      btn.parentElement.classList.toggle('open');
+    }
+
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const observer = new IntersectionObserver((e) => {
+      e.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    revealElements.forEach(el => observer.observe(el));
+
+    function animateCounters() {
+      document.querySelectorAll('.stat-num').forEach(stat => {
+        const target = +stat.getAttribute('data-target');
+        let count = 0;
+        const step = target / 100;
+        const update = () => {
+          if (count < target) {
+            count += step;
+            stat.innerText = Math.ceil(count).toLocaleString() + (stat.innerText.includes('%') ? '%' : '+');
+            setTimeout(update, 10);
+          } else {
+            stat.innerText = target.toLocaleString() + (stat.innerText.includes('%') ? '%' : '+');
+          }
+        };
+        update();
+      });
+    }
+    const statsSection = document.querySelector('.stats');
+    if (statsSection) {
+      const statsObserver = new IntersectionObserver((e) => {
+        if (e[0].isIntersecting) { animateCounters(); statsObserver.unobserve(statsSection); }
+      }, { threshold: 0.5 });
+      statsObserver.observe(statsSection);
+    }
+
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('mainHeader');
+      if (window.scrollY > 50) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    });
+  </script>
+</body>
+
+</html>

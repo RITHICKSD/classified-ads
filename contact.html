@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Contact Us | AdVerse Marketplace</title>
+  <meta name="description"
+    content="Get in touch with the AdVerse team. We're here to support your premium marketplace needs." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFB800' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'></polygon></svg>" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+  <div class="overlay" id="overlay" onclick="closeMobileNav()"></div>
+
+  <nav class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav-close" onclick="closeMobileNav()"><i data-lucide="x"></i></button>
+    <ul>
+      <li>
+        <a href="#" onclick="toggleMobileSub('sub-home',event)">Home <i data-lucide="chevron-down"></i></a>
+        <ul class="mobile-sub" id="sub-home">
+          <li><a href="index.html">Home 1</a></li>
+          <li><a href="home2.html">Home 2</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+      <li>
+        <a href="#" onclick="toggleMobileSub('sub-dash',event)">Dashboard <i data-lucide="chevron-down"></i></a>
+        <ul class="mobile-sub" id="sub-dash">
+          <li><a href="user-dashboard.html">User Dashboard</a></li>
+          <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+        </ul>
+      </li>
+      <li><a href="login.html" class="mobile-post-btn">Login</a></li>
+    </ul>
+  </nav>
+
+  <header class="header" id="mainHeader">
+    <a href="index.html" class="logo">
+      <div class="logo-icon"><i data-lucide="zap"></i></div>
+      <span class="logo-text">Ad<span>Verse</span></span>
+    </a>
+
+    <ul class="nav">
+      <li>
+        <a href="#">Home <i data-lucide="chevron-down" style="width:14px"></i></a>
+        <div class="dropdown">
+          <a href="index.html">Home 1</a>
+          <a href="home2.html">Home 2</a>
+        </div>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+      <li>
+        <a href="#">Dashboard <i data-lucide="chevron-down" style="width:14px"></i></a>
+        <div class="dropdown">
+          <a href="user-dashboard.html">User Dashboard</a>
+          <a href="admin-dashboard.html">Admin Dashboard</a>
+        </div>
+      </li>
+    </ul>
+
+    <div class="header-right">
+      <button class="btn-globe" id="rtlToggle" onclick="toggleRTL()" title="Toggle RTL/LTR">
+        <i data-lucide="globe"></i>
+      </button>
+      <a href="login.html" class="btn-post" style="text-decoration: none;">Login</a>
+      <button class="hamburger" id="hamburger" onclick="openMobileNav()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. Contact Hero V4 -->
+    <section class="hero-about-v4 reveal">
+      <div class="hero-about-v4-bg"
+        style="background-image: url('https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=1920&q=80');">
+      </div>
+      <div class="hero-about-v4-overlay"></div>
+      <div class="hero-about-orb"
+        style="width:500px; height:500px; background: radial-gradient(circle, rgba(255, 184, 0, 0.1), transparent 70%);">
+      </div>
+
+      <div class="hero-about-v4-inner">
+        <div class="tag" style="background:rgba(255, 184, 0, 0.1); color:var(--accent-gold); margin-bottom:25px;">
+          <i data-lucide="message-circle"></i> Open Connectivity
+        </div>
+        <h1>Let's Start a <br><span class="gradient-text">Conversation</span></h1>
+        <p>Have a question about our premium listings or enterprise solutions? Our elite team is ready to assist you in
+          navigating the future of marketplace trade.</p>
+      </div>
+    </section>
+
+    <!-- 3. Core Department Connectivity (3 Cards) -->
+    <section class="section-pad">
+      <div class="container">
+        <div class="cat-grid-v2">
+          <!-- Support -->
+          <div class="cat-card-v2 reveal">
+            <div class="cat-icon-v2" style="background:rgba(139, 92, 246, 0.1); color:var(--accent-purple);"><i
+                data-lucide="help-circle"></i></div>
+            <h4>Direct Support</h4>
+            <p style="font-size:14px; margin-top:15px; color:var(--text-muted);">24/7 priority assistance for all
+              account and listing inquiries.</p>
+            <h5 style="margin-top:20px; color:var(--accent-purple);">support@adverse.com</h5>
+          </div>
+          <!-- Sales -->
+          <div class="cat-card-v2 reveal delay-1">
+            <div class="cat-icon-v2" style="background:rgba(0, 245, 160, 0.1); color:var(--accent-mint);"><i
+                data-lucide="briefcase"></i></div>
+            <h4>Enterprise Sales</h4>
+            <p style="font-size:14px; margin-top:15px; color:var(--text-muted);">Custom solutions and verified
+              partnership opportunities.</p>
+            <h5 style="margin-top:20px; color:var(--accent-mint);">partners@adverse.com</h5>
+          </div>
+          <!-- Press -->
+          <div class="cat-card-v2 reveal delay-2">
+            <div class="cat-icon-v2" style="background:rgba(255, 184, 0, 0.1); color:var(--accent-gold);"><i
+                data-lucide="info"></i></div>
+            <h4>Press Relations</h4>
+            <p style="font-size:14px; margin-top:15px; color:var(--text-muted);">Official media kits and leadership
+              interview requests.</p>
+            <h5 style="margin-top:20px; color:var(--accent-gold);">media@adverse.com</h5>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Global Headquarters Spotlight (Split) -->
+    <section class="section-pad" style="background:var(--bg-secondary);">
+      <div class="container">
+        <div class="split-v3">
+          <div class="reveal-left">
+            <div class="img-v3-placeholder" style="aspect-ratio:3/2;">
+              <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80"
+                alt="Office Interior" />
+            </div>
+          </div>
+          <div class="reveal-right">
+            <div class="tag"><i data-lucide="map-pin"></i> Location</div>
+            <h2 style="font-size:42px;">Our Physical <span class="gradient-text">Headquarters</span></h2>
+            <p style="margin-top:25px; color:var(--text-muted); line-height:1.9;">While our platform spans the globe,
+              our strategic operations are centered in London's financial heart. We welcome scheduled visits from our
+              verified enterprise partners and diamond members.</p>
+            <div style="margin-top:35px; border-left:2px solid var(--accent-mint); padding-left:30px;">
+              <h5 style="color:#fff; margin-bottom:5px;">AdVerse Nexus Tower</h5>
+              <p style="font-size:14px; color:var(--text-muted);">Level 42, 100 Bishopsgate<br>London, EC2N 4AG, United
+                Kingdom</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Premium Master Contact Form (Main Action) -->
+    <section class="section-pad">
+      <div class="container">
+        <div class="section-header">
+          <div class="tag">Message Desk</div>
+          <h2>Send A <span class="gradient-text">Direct Inquiry</span></h2>
+        </div>
+        <div class="form-v4-container reveal">
+          <form action="#">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:30px;">
+              <div class="form-v4-group">
+                <label>Your Name</label>
+                <input type="text" class="form-v4-input" placeholder="Enter name" />
+              </div>
+              <div class="form-v4-group">
+                <label>Business Email</label>
+                <input type="email" class="form-v4-input" placeholder="e.g. name@domain.com" />
+              </div>
+            </div>
+            <div class="form-v4-group">
+              <label>Inquiry Department</label>
+              <select class="form-v4-input" style="appearance:none;">
+                <option>Support & Assistance</option>
+                <option>Enterprise Partnerships</option>
+                <option>Media & Press</option>
+                <option>Technical Security</option>
+              </select>
+            </div>
+            <div class="form-v4-group">
+              <label>Detailed Message</label>
+              <textarea class="form-v4-textarea" placeholder="How can we assist you today?"></textarea>
+            </div>
+            <button type="submit" class="btn-primary" style="width:100%; padding:22px; font-size:18px;">Deliver Message
+              <i data-lucide="send"></i></button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Ecosystem Synergy (Social Grid) -->
+    <section class="section-pad" style="background:var(--bg-secondary);">
+      <div class="container">
+        <div class="section-header">
+          <div class="tag">Synergy</div>
+          <h2>Digital <span class="gradient-text">Footprint</span></h2>
+          <p>Connect with our professional network for real-time market pulses and updates.</p>
+        </div>
+        <div class="social-grid-v4">
+          <a href="#" class="social-card-v4 reveal">
+            <i data-lucide="linkedin"></i>
+            <h5>LinkedIn</h5>
+            <span>Professional Core</span>
+          </a>
+          <a href="#" class="social-card-v4 reveal delay-1" style="border-color:rgba(255, 184, 0, 0.2);">
+            <i data-lucide="twitter" style="color:var(--accent-gold);"></i>
+            <h5 style="color:var(--accent-gold);">X / Twitter</h5>
+            <span>Market Pulse</span>
+          </a>
+          <a href="#" class="social-card-v4 reveal delay-2">
+            <i data-lucide="instagram" style="color:var(--accent-purple);"></i>
+            <h5 style="color:var(--accent-purple);">Instagram</h5>
+            <span>Visual Showcase</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Urgent Support Footer CTA -->
+    <section class="section-pad">
+      <div class="container">
+        <div class="activity-v3-card reveal" style="padding:100px 40px; text-align:center;">
+          <div class="tag"
+            style="margin:0 auto 25px; display:block; width:fit-content; background:rgba(0, 245, 160, 0.1); color:var(--accent-mint);">
+            Urgent</div>
+          <h2 style="font-size:42px; margin-bottom:20px;">Need <span class="gradient-text">Immediate</span> Assistance?
+          </h2>
+          <p style="color:var(--text-muted); max-width:650px; margin:0 auto 40px; font-size:18px;">Our automated
+            knowledge base and live concierge chat are available 24/7 for urgent security or transaction inquiries.</p>
+          <div style="display:flex; justify-content:center; gap:25px; flex-wrap:wrap;">
+            <a href="#" class="btn-primary" style="padding:18px 45px;">Visit Help Center</a>
+            <a href="#" class="btn-secondary" style="padding:18px 45px; border-color:var(--border);">Contact
+              Security</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner container">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" style="margin-bottom: 25px;">
+          <div class="logo-icon"><i data-lucide="zap"></i></div>
+          <span class="logo-text">Ad<span>Verse</span></span>
+        </a>
+        <p style="font-size: 14px; color: var(--text-muted); line-height: 1.8;">The world's most trusted classified ads
+          marketplace for premium goods and services. Connecting the elite since 2021.</p>
+      </div>
+      <div class="footer-links">
+        <h4 style="margin-bottom: 25px; font-size: 16px; color: #fff;">Marketplace</h4>
+        <ul style="list-style: none; display: grid; gap: 12px; font-size: 14px; color: var(--text-muted);">
+          <li><a href="#" style="color: inherit; text-decoration: none;">V2 Featured Ads</a></li>
+          <li><a href="#" style="color: inherit; text-decoration: none;">Verified Sellers</a></li>
+          <li><a href="#" style="color: inherit; text-decoration: none;">Local Map Browse</a></li>
+          <li><a href="#" style="color: inherit; text-decoration: none;">Category Spotlight</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4 style="margin-bottom: 25px; font-size: 16px; color: #fff;">Legal & Platform</h4>
+        <ul style="list-style: none; display: grid; gap: 12px; font-size: 14px; color: var(--text-muted);">
+          <li><a href="#" style="color: inherit; text-decoration: none;">Security Protocol</a></li>
+          <li><a href="#" style="color: inherit; text-decoration: none;">Privacy Policy</a></li>
+          <li><a href="#" style="color: inherit; text-decoration: none;">Investor Relations</a></li>
+          <li><a href="#" style="color: inherit; text-decoration: none;">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4 style="margin-bottom: 25px; font-size: 16px; color: #fff;">Join the Pulse</h4>
+        <div style="display: flex; gap: 15px; margin-bottom: 25px;">
+          <a href="#"
+            style="width: 40px; height: 40px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: 0.3s;"><i
+              data-lucide="facebook" style="width:18px;"></i></a>
+          <a href="#"
+            style="width: 40px; height: 40px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: 0.3s;"><i
+              data-lucide="twitter" style="width:18px;"></i></a>
+          <a href="#"
+            style="width: 40px; height: 40px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: 0.3s;"><i
+              data-lucide="instagram" style="width:18px;"></i></a>
+        </div>
+        <p style="font-size: 12px; color: var(--text-muted);">Stay updated with our weekly Pulse newsletter for the
+          latest high-value acquisitions.</p>
+      </div>
+    </div>
+    <div
+      style="border-top: 1px solid var(--border); padding: 40px 0; text-align: center; color: var(--text-muted); font-size: 13px; background: rgba(0,0,0,0.1);">
+      &copy; 2026 AdVerse Marketplace. Built for the future of trade. <span
+        style="margin: 0 10px; opacity:0.3;">|</span> <a href="#" style="color:inherit; text-decoration:none;">Terms
+        applied.</a>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    function toggleRTL() {
+      const body = document.body;
+      body.classList.toggle('rtl');
+      document.getElementById('html-root').setAttribute('dir', body.classList.contains('rtl') ? 'rtl' : 'ltr');
+    }
+    function openMobileNav() {
+      document.getElementById('mobileNav').classList.add('open');
+      document.getElementById('overlay').classList.add('open');
+    }
+    function closeMobileNav() {
+      document.getElementById('mobileNav').classList.remove('open');
+      document.getElementById('overlay').classList.remove('open');
+    }
+    function toggleMobileSub(id, e) {
+      e.preventDefault();
+      document.getElementById(id).classList.toggle('open');
+    }
+
+    // Reveal Animations
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const observer = new IntersectionObserver((e) => {
+      e.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    revealElements.forEach(el => observer.observe(el));
+
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('mainHeader');
+      if (window.scrollY > 50) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    });
+  </script>
+</body>
+
+</html>

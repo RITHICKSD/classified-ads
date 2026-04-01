@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Login | AdVerse Marketplace</title>
+  <meta name="description" content="Login to your AdVerse account to manage your listings and profile." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFB800' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'></polygon></svg>" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    .auth-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 20px;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg-primary);
+    }
+
+    .auth-card {
+      width: 100%;
+      max-width: 480px;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      padding: 60px 45px;
+      position: relative;
+      z-index: 10;
+      box-shadow: 0 40px 120px rgba(0, 0, 0, 0.6);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .auth-card:hover { transform: translateY(-5px); }
+
+    .auth-header {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .auth-header h1 {
+      font-size: 36px;
+      margin-bottom: 12px;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+    }
+
+    .auth-header p {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .auth-footer {
+      margin-top: 35px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .auth-footer a {
+      color: var(--accent-gold);
+      text-decoration: none;
+      font-weight: 700;
+      margin-left: 5px;
+      transition: color 0.3s ease;
+    }
+
+    .auth-footer a:hover { color: var(--accent-mint); }
+
+    .hero-orb-auth {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.12), transparent 70%);
+      filter: blur(80px);
+      z-index: 1;
+      border-radius: 50%;
+    }
+
+    .orb-v1 { top: -200px; right: -200px; }
+    .orb-v2 { bottom: -200px; left: -200px; background: radial-gradient(circle, rgba(255, 184, 0, 0.08), transparent 70%); }
+
+    .or-separator {
+      display: flex;
+      align-items: center;
+      margin: 30px 0;
+      color: rgba(255, 255, 255, 0.2);
+    }
+    .or-separator::before, .or-separator::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .or-separator span {
+      padding: 0 15px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .btn-social {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      font-family: 'Syne', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      cursor: pointer;
+      margin-bottom: 12px;
+      transition: all 0.3s ease;
+    }
+    .btn-social:hover {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: scale(1.02);
+    }
+    .btn-social img { width: 18px; }
+
+    .form-extras {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      font-size: 13px;
+    }
+    .remember-me {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+    .remember-me input {
+      accent-color: var(--accent-gold);
+      width: 16px;
+      height: 16px;
+    }
+    .forgot-link {
+      color: var(--accent-mint);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .forgot-link:hover { text-decoration: underline; }
+
+    .rtl .auth-controls {
+      right: auto;
+      left: 25px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="auth-page">
+    <div class="hero-orb-auth orb-v1"></div>
+    <div class="hero-orb-auth orb-v2"></div>
+
+    <div class="auth-card reveal">
+      <div class="auth-controls" style="position: absolute; top: 25px; right: 25px;">
+        <button class="btn-globe" id="rtlToggle" onclick="toggleRTL()" title="Toggle RTL/LTR" style="background: rgba(255,255,255,0.05); border: 1px solid var(--border); width: 44px; height: 44px; border-radius: 12px; color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+          <i data-lucide="globe"></i>
+        </button>
+      </div>
+      <div class="auth-header">
+        <a href="index.html" class="logo" style="justify-content: center; margin-bottom: 25px;">
+          <div class="logo-icon"><i data-lucide="zap"></i></div>
+          <span class="logo-text">Ad<span>Verse</span></span>
+        </a>
+        <h1>Welcome <span class="gradient-text">Back</span></h1>
+        <p>Please login to your premium AdVerse account</p>
+      </div>
+
+      <form action="user-dashboard.html">
+        <div class="form-v4-group">
+          <label>Email Address</label>
+          <input type="email" class="form-v4-input" placeholder="john@example.com" required />
+        </div>
+        <div class="form-v4-group" style="margin-bottom: 15px;">
+          <label>Password</label>
+          <input type="password" class="form-v4-input" placeholder="Enter your password" required />
+        </div>
+        
+        <div class="form-extras">
+          <label class="remember-me">
+            <input type="checkbox" /> Remember me
+          </label>
+          <a href="#" class="forgot-link">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn-primary" style="width: 100%; padding: 18px; font-size: 16px; justify-content: center; margin-bottom: 0;">
+          LOGIN <i data-lucide="log-in" style="width:18px"></i>
+        </button>
+      </form>
+
+      <div class="or-separator"><span>OR</span></div>
+
+      <button class="btn-social">
+        <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" alt="Google" />
+        Continue with Google
+      </button>
+      <button class="btn-social">
+        <i data-lucide="facebook" style="width:18px; color: #1877F2;"></i>
+        Continue with Facebook
+      </button>
+
+      <div class="auth-footer">
+        Don't have an account? <a href="register.html">Register here</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    lucide.createIcons();
+
+    function toggleRTL() {
+      const body = document.body;
+      body.classList.toggle('rtl');
+      document.getElementById('html-root').setAttribute('dir', body.classList.contains('rtl') ? 'rtl' : 'ltr');
+    }
+
+    // Reveal Animations
+    const revealElements = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((e) => {
+      e.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    revealElements.forEach(el => observer.observe(el));
+  </script>
+</body>
+
+</html>

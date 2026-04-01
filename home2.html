@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>AdVerse – Home 2 Premium Showcase</title>
+  <meta name="description" content="Experience the ultimate marketplace for high-end goods and services." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFB800' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'></polygon></svg>" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+  <div class="overlay" id="overlay" onclick="closeMobileNav()"></div>
+
+  <nav class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav-close" onclick="closeMobileNav()"><i data-lucide="x"></i></button>
+    <ul>
+      <li>
+        <a href="#" onclick="toggleMobileSub('sub-home',event)">Home <i data-lucide="chevron-down"></i></a>
+        <ul class="mobile-sub" id="sub-home">
+          <li><a href="index.html">Home 1</a></li>
+          <li><a href="home2.html" class="active">Home 2</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li>
+        <a href="#" onclick="toggleMobileSub('sub-dash',event)">Dashboard <i data-lucide="chevron-down"></i></a>
+        <ul class="mobile-sub" id="sub-dash">
+          <li><a href="user-dashboard.html">User Dashboard</a></li>
+          <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+        </ul>
+      </li>
+      <li><a href="login.html" class="mobile-post-btn">Login</a></li>
+    </ul>
+  </nav>
+
+  <header class="header" id="mainHeader">
+    <a href="index.html" class="logo">
+      <div class="logo-icon"><i data-lucide="zap"></i></div>
+      <span class="logo-text">Ad<span>Verse</span></span>
+    </a>
+
+    <ul class="nav">
+      <li>
+        <a href="#" class="active">Home <i data-lucide="chevron-down" style="width:14px"></i></a>
+        <div class="dropdown">
+          <a href="index.html">Home 1</a>
+          <a href="home2.html" class="active">Home 2</a>
+        </div>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li>
+        <a href="#">Dashboard <i data-lucide="chevron-down" style="width:14px"></i></a>
+        <div class="dropdown">
+          <a href="user-dashboard.html">User Dashboard</a>
+          <a href="admin-dashboard.html">Admin Dashboard</a>
+        </div>
+      </li>
+    </ul>
+
+    <div class="header-right">
+      <button class="btn-globe" id="rtlToggle" onclick="toggleRTL()" title="Toggle RTL/LTR">
+        <i data-lucide="globe"></i>
+      </button>
+      <a href="login.html" class="btn-post" style="text-decoration: none;">Login</a>
+      <button class="hamburger" id="hamburger" onclick="openMobileNav()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. Redesigned Hero V5 -->
+    <section class="hero-v5-redesign">
+      <div class="hero-v5-glow"></div>
+      <div class="container">
+        <div class="hero-v5-grid">
+          <div class="hero-v5-content reveal">
+            <div class="tag"><i data-lucide="sparkles"></i> Elite Platform</div>
+            <h1 style="font-size: clamp(36px, 5.5vw, 80px); line-height: 1.1; margin-bottom: 25px; font-weight: 800; font-family: 'Syne', sans-serif;">
+              The Modern Era of<br><span class="gradient-text">Premium Trading</span>
+            </h1>
+            <p style="font-size: 18px; color: var(--text-muted); margin-bottom: 40px; max-width: 600px; line-height: 1.6;">
+              Discover a refined marketplace tailored for the future. From high-end estates to cutting-edge technology, experience trade with zero noise and maximum trust.
+            </p>
+            <div class="hero-search" style="max-width: 600px; margin-top: 0;">
+              <div class="search-bar">
+                <i data-lucide="search" style="color:var(--text-muted)"></i>
+                <input type="text" placeholder="What's on your mind today?" />
+                <button class="search-btn">Find Now</button>
+              </div>
+            </div>
+          </div>
+          <div class="hero-v5-image-wrap reveal">
+            <img src="assets/hero_v2.png" alt="Premium Marketplace Interface">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Modern Category Grid -->
+    <section class="section-pad">
+      <div class="container">
+        <div class="section-header">
+          <div class="tag"><i data-lucide="layers"></i> Architecture</div>
+          <h2>Explore Our <span class="gradient-text">Ecosystem</span></h2>
+          <p>Curated categories designed for high-impact discovery across all industries.</p>
+        </div>
+        <div class="cat-grid-v2">
+          <a href="#" class="cat-card-v2 reveal">
+            <div class="cat-icon-v2"><i data-lucide="home"></i></div>
+            <h4>Real Estate</h4>
+            <span style="font-size: 12px; color: var(--text-muted);">48,000 Verified Ads</span>
+          </a>
+          <a href="#" class="cat-card-v2 reveal delay-1">
+            <div class="cat-icon-v2"><i data-lucide="car"></i></div>
+            <h4>Vehicles</h4>
+            <span style="font-size: 12px; color: var(--text-muted);">32,000 Verified Ads</span>
+          </a>
+          <a href="#" class="cat-card-v2 reveal delay-2">
+            <div class="cat-icon-v2"><i data-lucide="smartphone"></i></div>
+            <h4>Electronics</h4>
+            <span style="font-size: 12px; color: var(--text-muted);">61,000 Verified Ads</span>
+          </a>
+          <a href="#" class="cat-card-v2 reveal delay-3">
+            <div class="cat-icon-v2"><i data-lucide="watch"></i></div>
+            <h4>Watches</h4>
+            <span style="font-size: 12px; color: var(--text-muted);">4,200 Verified Ads</span>
+          </a>
+          <a href="#" class="cat-card-v2 reveal" style="transition-delay: 0.4s;">
+            <div class="cat-icon-v2"><i data-lucide="shopping-bag"></i></div>
+            <h4>Fashion</h4>
+            <span style="font-size: 12px; color: var(--text-muted);">18,000 Verified Ads</span>
+          </a>
+          <a href="#" class="cat-card-v2 reveal" style="transition-delay: 0.5s;">
+            <div class="cat-icon-v2"><i data-lucide="briefcase"></i></div>
+            <h4>Services</h4>
+            <span style="font-size: 12px; color: var(--text-muted);">12,500 Verified Ads</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Flash Sale Banner -->
+    <section class="section-pad">
+      <div class="container">
+        <div class="flash-banner reveal">
+          <div class="flash-content">
+            <h2 style="color:#fff; margin-bottom: 10px;">Weekend <span style="color: var(--accent-gold)">Flash
+                Booster</span></h2>
+            <p style="opacity:0.9;">Boost your ad visibility by 500% for free this weekend.</p>
+          </div>
+          <div class="timer-v2">
+            <div class="timer-box-v2"><strong>08</strong><small>Hours</small></div>
+            <div class="timer-box-v2"><strong>15</strong><small>Mins</small></div>
+            <div class="timer-box-v2"><strong>30</strong><small>Secs</small></div>
+          </div>
+          <button class="btn-primary" style="background:#fff; color:#000;">Boost Now <i data-lucide="zap"
+              style="width:16px;"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Verified Sellers Grid -->
+    <section class="section-pad">
+      <div class="container">
+        <div class="section-header">
+          <div class="tag"><i data-lucide="user-check"></i> Network</div>
+          <h2>Trusted <span class="gradient-text">Top Sellers</span></h2>
+          <p>Connect with high-rating professionals manually vetted by our security team.</p>
+        </div>
+        <div class="user-showcase-grid">
+          <div class="user-card-v2 reveal">
+            <div class="author-avatar" style="width:80px; height:80px; margin: 0 auto 20px;"><img
+                src="https://i.pravatar.cc/150?u=1" alt="user" style="width:100%; border-radius:50%;" /></div>
+            <h4 style="margin-bottom:5px;">Robert Fox</h4>
+            <p style="font-size:12px; color:var(--text-muted); margin-bottom:15px;">Verified Real Estate Guru</p>
+            <div style="display:flex; justify-content:center; gap:5px; color:var(--accent-gold); font-size:12px;"><i
+                data-lucide="star" style="width:12px;"></i> 4.9 (1.2k Reviews)</div>
+          </div>
+          <div class="user-card-v2 reveal delay-1">
+            <div class="author-avatar" style="width:80px; height:80px; margin: 0 auto 20px;"><img
+                src="https://i.pravatar.cc/150?u=2" alt="user" style="width:100%; border-radius:50%;" /></div>
+            <h4 style="margin-bottom:5px;">Jenny Wilson</h4>
+            <p style="font-size:12px; color:var(--text-muted); margin-bottom:15px;">Tech Collector since 2021</p>
+            <div style="display:flex; justify-content:center; gap:5px; color:var(--accent-gold); font-size:12px;"><i
+                data-lucide="star" style="width:12px;"></i> 5.0 (850 Reviews)</div>
+          </div>
+          <div class="user-card-v2 reveal delay-2">
+            <div class="author-avatar" style="width:80px; height:80px; margin: 0 auto 20px;"><img
+                src="https://i.pravatar.cc/150?u=3" alt="user" style="width:100%; border-radius:50%;" /></div>
+            <h4 style="margin-bottom:5px;">Kristin Watson</h4>
+            <p style="font-size:12px; color:var(--text-muted); margin-bottom:15px;">Luxury Car Importer</p>
+            <div style="display:flex; justify-content:center; gap:5px; color:var(--accent-gold); font-size:12px;"><i
+                data-lucide="star" style="width:12px;"></i> 4.8 (2.4k Reviews)</div>
+          </div>
+          <div class="user-card-v2 reveal" style="transition-delay: 0.3s;">
+            <div class="author-avatar" style="width:80px; height:80px; margin: 0 auto 20px;"><img
+                src="https://i.pravatar.cc/150?u=4" alt="user" style="width:100%; border-radius:50%;" /></div>
+            <h4 style="margin-bottom:5px;">Guy Hawkins</h4>
+            <p style="font-size:12px; color:var(--text-muted); margin-bottom:15px;">Art & Rare Antiques</p>
+            <div style="display:flex; justify-content:center; gap:5px; color:var(--accent-gold); font-size:12px;"><i
+                data-lucide="star" style="width:12px;"></i> 4.7 (620 Reviews)</div>
+          </div>
+          <div class="user-card-v2 reveal" style="transition-delay: 0.4s;">
+            <div class="author-avatar" style="width:80px; height:80px; margin: 0 auto 20px;"><img
+                src="https://i.pravatar.cc/150?u=5" alt="user" style="width:100%; border-radius:50%;" /></div>
+            <h4 style="margin-bottom:5px;">Eleanor Pena</h4>
+            <p style="font-size:12px; color:var(--text-muted); margin-bottom:15px;">Luxury Fashion Expert</p>
+            <div style="display:flex; justify-content:center; gap:5px; color:var(--accent-gold); font-size:12px;"><i
+                data-lucide="star" style="width:12px;"></i> 4.9 (2.1k Reviews)</div>
+          </div>
+          <div class="user-card-v2 reveal" style="transition-delay: 0.5s;">
+            <div class="author-avatar" style="width:80px; height:80px; margin: 0 auto 20px;"><img
+                src="https://i.pravatar.cc/150?u=6" alt="user" style="width:100%; border-radius:50%;" /></div>
+            <h4 style="margin-bottom:5px;">Wade Warren</h4>
+            <p style="font-size:12px; color:var(--text-muted); margin-bottom:15px;">Professional Estate Agent</p>
+            <div style="display:flex; justify-content:center; gap:5px; color:var(--accent-gold); font-size:12px;"><i
+                data-lucide="star" style="width:12px;"></i> 5.0 (3.4k Reviews)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Interactive Map Preview -->
+    <section class="section-pad">
+      <div class="container">
+        <div class="section-header">
+          <div class="tag"><i data-lucide="map-pin"></i> Geospatial</div>
+          <h2>Hyper-Local <span class="gradient-text">Discovery</span></h2>
+          <p>Find hidden gems right in your neighborhood with our live interactive deal map.</p>
+        </div>
+        <div class="map-ui reveal">
+          <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1200&q=80"
+            alt="Map" style="width:100%; height:100%; object-fit:cover; opacity:0.6; filter:grayscale(1);" />
+          <div
+            style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.5); backdrop-filter:blur(5px);">
+            <div style="text-align:center;">
+              <button class="btn-primary" style="padding:20px 40px; font-size:18px;">Unlock Live Map Experience</button>
+              <p style="margin-top:20px; font-size:13px; opacity:0.7;">Over <span style="color:var(--accent-gold)">5,400
+                  ads</span> active in your local area.</p>
+            </div>
+          </div>
+          <!-- Pulse Markers -->
+          <div class="map-point" style="top:30%; left:20%;"></div>
+          <div class="map-point" style="top:60%; left:50%; background:var(--accent-mint);"></div>
+          <div class="map-point" style="top:20%; left:80%; background:var(--accent-gold);"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Simple Flow Guide -->
+    <section class="section-pad" style="background:var(--bg-secondary);">
+      <div class="container">
+        <div class="section-header">
+          <div class="tag"><i data-lucide="help-circle"></i> Onboarding</div>
+          <h2>Fastest Way to <span class="gradient-text">Sell Anything</span></h2>
+        </div>
+        <div class="steps">
+          <div class="step reveal">
+            <div class="step-icon"><i data-lucide="camera" style="color:var(--accent-gold)"></i><span
+                class="step-num">1</span></div>
+            <h3>Snap & Describe</h3>
+            <p>Upload high-res photos and let our AI draft your description.</p>
+          </div>
+          <div class="step reveal delay-1">
+            <div class="step-icon"><i data-lucide="share-2" style="color:var(--accent-blue)"></i><span
+                class="step-num">2</span></div>
+            <h3>Verify & Share</h3>
+            <p>Verify your identity and get instant priority placement across the nation.</p>
+          </div>
+          <div class="step reveal delay-2">
+            <div class="step-icon"><i data-lucide="credit-card" style="color:var(--accent-mint)"></i><span
+                class="step-num">3</span></div>
+            <h3>Deal & Earning</h3>
+            <p>Chat securely with verified buyers and close the loop safely.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Premium Featured Collection -->
+    <section class="section-pad">
+      <div class="container">
+        <div class="section-header">
+          <div class="tag"><i data-lucide="award"></i> Curated</div>
+          <h2>V2 Premium <span class="gradient-text">Showcase</span></h2>
+          <p>A handpicked selection of ultra-high-value listings from our top-tier catalog.</p>
+        </div>
+        <div class="ads-grid">
+          <div class="ad-card reveal">
+            <div class="ad-img-placeholder" style="background: linear-gradient(135deg, #1A1A4A, #2A1A5A)"><i
+                data-lucide="home" style="width: 50px; height: 50px;"></i></div>
+            <div class="ad-body">
+              <span class="ad-badge badge-top">Estate</span>
+              <div class="ad-title">Azure Sky Penthouse</div>
+              <div class="ad-price">$4,500,000</div>
+            </div>
+          </div>
+          <div class="ad-card reveal delay-1">
+            <div class="ad-img-placeholder" style="background: linear-gradient(135deg, #4A1A1A, #5A2A1A)"><i
+                data-lucide="car" style="width: 50px; height: 50px;"></i></div>
+            <div class="ad-body">
+              <span class="ad-badge badge-hot">Limited</span>
+              <div class="ad-title">Ferrari SF90 Stradale</div>
+              <div class="ad-price">$650,000</div>
+            </div>
+          </div>
+          <div class="ad-card reveal delay-2">
+            <div class="ad-img-placeholder" style="background: linear-gradient(135deg, #1A4A4A, #2A5A5A)"><i
+                data-lucide="watch" style="width: 50px; height: 50px;"></i></div>
+            <div class="ad-body">
+              <span class="ad-badge badge-new">Rare</span>
+              <div class="ad-title">Patek Philippe Nautilus</div>
+              <div class="ad-price">$185,000</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Real-time Activity Pulse REDESIGNED -->
+    <section class="section-pad">
+      <div class="container">
+        <div class="activity-v3-card reveal">
+          <div class="split-v3">
+            <div class="reveal-left">
+              <div class="tag" style="background: rgba(139, 92, 246, 0.2);"><i data-lucide="activity"></i> Pulse 2.0
+              </div>
+              <h2 style="font-size: 54px; line-height: 1.1;">Market <span class="gradient-text">Live Pulse</span></h2>
+              <p style="margin-top: 25px; color: var(--text-muted); font-size: 18px; line-height: 1.8;">Experience the
+                real-time heartbeat of the marketplace. Thousands of deals closing every second.</p>
+              <div style="display: flex; gap: 20px; margin-top: 40px;">
+                <div class="pulse-stat-card">
+                  <h3 style="color:var(--accent-mint)">450</h3>
+                  <small style="opacity:0.6; text-transform:uppercase; font-size:10px;">Bids/Min</small>
+                </div>
+                <div class="pulse-stat-card">
+                  <h3 style="color:var(--accent-gold)">12.5k</h3>
+                  <small style="opacity:0.6; text-transform:uppercase; font-size:10px;">Live Users</small>
+                </div>
+              </div>
+            </div>
+            <div class="reveal-right">
+              <div class="img-v3-placeholder">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+                  alt="Live Action" />
+              </div>
+            </div>
+          </div>
+
+          <div class="activity-feed reveal" style="margin-top: 60px;">
+            <div class="activity-item-v3">
+              <div class="activity-dot"></div>
+              <div class="activity-text">
+                <strong>Tesla Roadster 2024</strong> listed in <strong>San Francisco</strong>
+                <small>Just now</small>
+              </div>
+              <div class="activity-val">$249k</div>
+            </div>
+            <div class="activity-item-v3">
+              <div class="activity-dot" style="background: var(--accent-gold);"></div>
+              <div class="activity-text">
+                <strong>New Bid</strong> on <strong>Rolex Submariner</strong>
+                <small>2m ago</small>
+              </div>
+              <div class="activity-val">Bid +$500</div>
+            </div>
+            <div class="activity-item-v3">
+              <div class="activity-dot" style="background: var(--accent-mint);"></div>
+              <div class="activity-text">
+                <strong>Sold:</strong> <strong>Penthouse Miami</strong>
+                <small>5m ago</small>
+              </div>
+              <div class="activity-val">Closed</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 9. Category Spotlight Banner REDESIGNED -->
+    <section class="section-pad">
+      <div class="container">
+        <div class="split-v3">
+          <div class="reveal-left">
+            <div class="tag" style="background:rgba(0,245,160,0.1); color:var(--accent-mint);">Spotlight</div>
+            <h2 style="font-size: clamp(28px, 5vw, 48px); margin-bottom:20px;">The Future of <span class="gradient-text">Tech Commerce</span></h2>
+            <p style="color:var(--text-muted); line-height:1.8; margin-bottom:40px;">From AI-driven computing to
+              zero-gravity drones. Explore the technology that defines the next decade of innovation.</p>
+            <div style="display:flex; gap:20px; flex-wrap:wrap;">
+              <a href="#" class="btn-primary">Explore Category</a>
+              <a href="#" class="btn-secondary">Watch Review</a>
+            </div>
+          </div>
+          <div class="reveal-right">
+            <div class="img-v3-placeholder"
+              style="aspect-ratio: 16/9; background: linear-gradient(135deg, #07071A, #1A1A4A);">
+              <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80"
+                alt="Spotlight Image" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Horizontal Expert Marquee (ANIMATED) -->
+    <section class="section-pad">
+      <div class="container">
+        <div class="section-header" style="text-align:center;">
+          <div class="tag">Selection</div>
+          <h2>The <span class="gradient-text">Experts Choice</span></h2>
+        </div>
+        <div class="marquee-v2 reveal" style="margin-top:60px;">
+          <div class="marquee-v2-content">
+            <div style="text-align:center; min-width:150px;"><i data-lucide="headphones"
+                style="width:50px; height:50px; color:var(--accent-purple);"></i>
+              <h5 style="margin-top:20px;">Audio Pros</h5>
+            </div>
+            <div style="text-align:center; min-width:150px;"><i data-lucide="camera"
+                style="width:50px; height:50px; color:var(--accent-gold);"></i>
+              <h5 style="margin-top:20px;">Visual Arts</h5>
+            </div>
+            <div style="text-align:center; min-width:150px;"><i data-lucide="box"
+                style="width:50px; height:50px; color:var(--accent-mint);"></i>
+              <h5 style="margin-top:20px;">Design Lab</h5>
+            </div>
+            <div style="text-align:center; min-width:150px;"><i data-lucide="hard-drive"
+                style="width:50px; height:50px; color:var(--accent-blue);"></i>
+              <h5 style="margin-top:20px;">Hardware</h5>
+            </div>
+            <!-- Duplicates for loop -->
+            <div style="text-align:center; min-width:150px;"><i data-lucide="headphones"
+                style="width:50px; height:50px; color:var(--accent-purple);"></i>
+              <h5 style="margin-top:20px;">Audio Pros</h5>
+            </div>
+            <div style="text-align:center; min-width:150px;"><i data-lucide="camera"
+                style="width:50px; height:50px; color:var(--accent-gold);"></i>
+              <h5 style="margin-top:20px;">Visual Arts</h5>
+            </div>
+            <div style="text-align:center; min-width:150px;"><i data-lucide="box"
+                style="width:50px; height:50px; color:var(--accent-mint);"></i>
+              <h5 style="margin-top:20px;">Design Lab</h5>
+            </div>
+            <div style="text-align:center; min-width:150px;"><i data-lucide="hard-drive"
+                style="width:50px; height:50px; color:var(--accent-blue);"></i>
+              <h5 style="margin-top:20px;">Hardware</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. Mobile App Featureette -->
+    <section class="section-pad">
+      <div class="container">
+        <div class="activity-v3-card reveal">
+          <div class="split-v3">
+            <div class="reveal-left">
+              <div class="tag"><i data-lucide="smartphone"></i> Connected</div>
+              <h2 style="font-size:42px;">Your Marketplace <span class="gradient-text">Anywhere</span></h2>
+              <p style="margin-top:25px; color:var(--text-muted); line-height:1.8;">Experience the world's most powerful
+                classifieds app. Instant notifications, secure chat, and high-speed multi-image uploader for
+                professional results on the go.</p>
+              <div class="app-badges" style="margin-top:40px;">
+                <div class="app-badge">
+                  <div class="app-badge-icon"><i data-lucide="apple"></i></div>
+                  <div class="app-badge-text"><small>Download</small><strong>App Store</strong></div>
+                </div>
+                <div class="app-badge">
+                  <div class="app-badge-icon"><i data-lucide="play"></i></div>
+                  <div class="app-badge-text"><small>Get it on</small><strong>Play Store</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="reveal-right">
+              <div class="img-v3-placeholder" style="aspect-ratio:3/4;">
+                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=80"
+                  alt="Mobile App" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. Business Intelligence Section -->
+    <section class="section-pad">
+      <div class="container">
+        <div class="split-v3">
+          <div class="reveal-left">
+            <div class="img-v3-placeholder">
+              <img src="images/c2.png" alt="Dashboard Insights" />
+            </div>
+          </div>
+          <div class="reveal-right">
+            <div class="tag" style="background:rgba(139, 92, 246, 0.1);"><i data-lucide="bar-chart-2"></i> Professional
+            </div>
+            <h2 style="font-size:42px;">Next-Gen <span class="gradient-text">Selling Insights</span></h2>
+            <p style="margin-top:20px; color:var(--text-muted); line-height:1.8;">Manage your business at scale. Track
+              CTR, audience location, and peak engagement times with our integrated seller dashboard.</p>
+            <ul class="feature-list" style="margin-top:30px; list-style:none;">
+              <li style="display:flex; align-items:center; gap:10px; margin-bottom:15px;"><i data-lucide="check-circle"
+                  style="color:var(--accent-mint); width:18px;"></i> Real-time Ad Heatmaps</li>
+              <li style="display:flex; align-items:center; gap:10px; margin-bottom:15px;"><i data-lucide="check-circle"
+                  style="color:var(--accent-mint); width:18px;"></i> Audience Demographic Data</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13. Dynamic Stat Grid (V3 ENHANCED) -->
+    <section class="section-pad">
+      <div class="container">
+        <div class="stat-v3-grid">
+          <div class="stat-v3-card reveal">
+            <div class="stat-v3-icon"><i data-lucide="shield-check"></i></div>
+            <h3 class="stat-num" data-target="99.9%">0%</h3>
+            <p>Platform Uptime</p>
+          </div>
+          <div class="stat-v3-card reveal delay-1">
+            <div class="stat-v3-icon"><i data-lucide="layers"></i></div>
+            <h3 class="stat-num" data-target="2.4M">0M</h3>
+            <p>Active Listings</p>
+          </div>
+          <div class="stat-v3-card reveal delay-2">
+            <div class="stat-v3-icon"><i data-lucide="map-pin"></i></div>
+            <h3 class="stat-num" data-target="150">0</h3>
+            <p>Cities Worldwide</p>
+          </div>
+          <div class="stat-v3-card reveal delay-3">
+            <div class="stat-v3-icon"><i data-lucide="zap"></i></div>
+            <h3 class="stat-num" data-target="12.5k">0</h3>
+            <p>Daily Deals</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 14. Partner Marquee (ANIMATED) -->
+    <section class="section-pad">
+      <div class="container">
+        <div class="section-header" style="text-align:center;">
+          <p
+            style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:6px; margin-bottom:50px; opacity:0.6;">
+            Industry Giants Supporting Us</p>
+        </div>
+        <div class="marquee-v2 reveal" style="opacity:0.6;">
+          <div class="marquee-v2-content">
+            <h4 style="font-weight:900; letter-spacing:5px;">MICROSOFT</h4>
+            <h4 style="font-weight:900; letter-spacing:5px;">SAMSUNG</h4>
+            <h4 style="font-weight:900; letter-spacing:5px;">TESLA</h4>
+            <h4 style="font-weight:900; letter-spacing:5px;">APPLE</h4>
+            <h4 style="font-weight:900; letter-spacing:5px;">ADOBE</h4>
+            <!-- Duplicates -->
+            <h4 style="font-weight:900; letter-spacing:5px;">MICROSOFT</h4>
+            <h4 style="font-weight:900; letter-spacing:5px;">SAMSUNG</h4>
+            <h4 style="font-weight:900; letter-spacing:5px;">TESLA</h4>
+            <h4 style="font-weight:900; letter-spacing:5px;">APPLE</h4>
+            <h4 style="font-weight:900; letter-spacing:5px;">ADOBE</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 15. Advanced Safety Grid -->
+    <section class="section-pad">
+      <div class="container">
+        <div
+          style="background:var(--bg-card2); padding:80px; border-radius:40px; border:1px solid var(--border); box-shadow:0 0 60px rgba(0,0,0,0.4);">
+          <div class="section-header">
+            <div class="tag"><i data-lucide="shield"></i> Protection 2.0</div>
+            <h2>The Safest Market <span class="gradient-text">Humanly Possible</span></h2>
+          </div>
+          <div class="glow-categories" style="margin-top:60px;">
+            <div class="reveal">
+              <div
+                style="width:60px; height:60px; background:rgba(139, 92, 246, 0.15); border-radius:16px; display:flex; align-items:center; justify-content:center; margin-bottom:25px;">
+                <i data-lucide="lock" style="color:var(--accent-purple);"></i>
+              </div>
+              <h4 style="font-size:20px;">Encrypted Chat</h4>
+              <p style="font-size:14px; color:var(--text-muted); margin-top:15px; line-height:1.6;">Every conversation
+                is end-to-end encrypted for your total privacy, never shared with third parties.</p>
+            </div>
+            <div class="reveal delay-1">
+              <div
+                style="width:60px; height:60px; background:rgba(255, 184, 0, 0.15); border-radius:16px; display:flex; align-items:center; justify-content:center; margin-bottom:25px;">
+                <i data-lucide="user-check" style="color:var(--accent-gold);"></i>
+              </div>
+              <h4 style="font-size:20px;">Face Verification</h4>
+              <p style="font-size:14px; color:var(--text-muted); margin-top:15px; line-height:1.6;">Biometric ID checks
+                ensure that every elite seller is a real person behind the screen.</p>
+            </div>
+            <div class="reveal delay-2">
+              <div
+                style="width:60px; height:60px; background:rgba(0, 245, 160, 0.15); border-radius:16px; display:flex; align-items:center; justify-content:center; margin-bottom:25px;">
+                <i data-lucide="eye" style="color:var(--accent-mint);"></i>
+              </div>
+              <h4 style="font-size:20px;">Neural Watch</h4>
+              <p style="font-size:14px; color:var(--text-muted); margin-top:15px; line-height:1.6;">Self-learning neural
+                networks scan every listing in real-time to intercept potential scams.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 16. Trending Collection Banner -->
+    <section class="section-pad">
+      <div class="container">
+        <div class="section-header">
+          <div class="tag">Momentum</div>
+          <h2>Trending <span class="gradient-text">Right Now</span></h2>
+        </div>
+        <div class="glow-categories" style="grid-template-columns: repeat(2, 1fr);">
+          <div class="ad-card reveal" style="padding:0; overflow:hidden; background:none; border:none;">
+            <div style="height:350px; overflow:hidden; border-radius:30px; position:relative;">
+              <img src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6" alt="tech"
+                style="width:100%; height:100%; object-fit:cover; transition:0.7s; cursor:pointer;"
+                onmouseover="this.style.transform='scale(1.15)'" onmouseout="this.style.transform='scale(1)'" />
+              <div
+                style="position:absolute; bottom:30px; left:30px; right:30px; background:rgba(0,0,0,0.8); backdrop-filter:blur(10px); padding:25px; border-radius:20px; border:1px solid rgba(255,255,255,0.1);">
+                <h4 style="color:#fff;">Performance Laptops</h4>
+                <p style="color:var(--accent-blue); padding-top:10px; font-weight:700;">From $1,299 →</p>
+              </div>
+            </div>
+          </div>
+          <div class="ad-card reveal delay-1" style="padding:0; overflow:hidden; background:none; border:none;">
+            <div style="height:350px; overflow:hidden; border-radius:30px; position:relative;">
+              <img src="images/c1.jpg" alt="Minimalist Furniture"
+                style="width:100%; height:100%; object-fit:cover; transition:0.7s; cursor:pointer;"
+                onmouseover="this.style.transform='scale(1.15)'" onmouseout="this.style.transform='scale(1)'" />
+              <div
+                style="position:absolute; bottom:30px; left:30px; right:30px; background:rgba(0,0,0,0.8); backdrop-filter:blur(10px); padding:25px; border-radius:20px; border:1px solid rgba(255,255,255,0.1);">
+                <h4 style="color:#fff;">Minimalist Rentals</h4>
+                <p style="color:var(--accent-blue); padding-top:10px; font-weight:700;">Explore Spaces →</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 17. Refined FAQ Accordion -->
+    <section class="section-pad" style="background:var(--bg-secondary);">
+      <div class="container">
+        <div style="display:grid; grid-template-columns: minmax(0, 450px) 1fr; gap:100px;" class="faq-split-grid">
+          <div class="reveal-left">
+            <h2 style="font-size:42px;">Common <span class="gradient-text">Questions</span></h2>
+            <p style="margin-top:25px; color:var(--text-muted); line-height:1.8;">Everything you need to know about the
+              AdVerse platform. If your question isn't here, our human support team is just a click away.</p>
+            <button class="btn-secondary" style="margin-top:40px; padding:18px 36px;">Talk to Human Support</button>
+          </div>
+          <div class="faq-list reveal-right">
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFAQ(this)">How secure is my personal data? <div class="faq-icon">+
+                </div></button>
+              <div class="faq-a">
+                <p>We utilize AES-256 bit encryption and never store your documents on our public servers. Everything is
+                  siloed and protected by banking-grade security protocols across all our global clusters.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFAQ(this)">Can I bid from another country? <div class="faq-icon">+
+                </div></button>
+              <div class="faq-a">
+                <p>Yes, AdVerse is globally accessible. Our escrow system handles currency conversions and international
+                  transactions automatically to protect both parties.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFAQ(this)">Is there a listing fee? <div class="faq-icon">+</div>
+              </button>
+              <div class="faq-a">
+                <p>Standard listings are 100% free. We only charge for optional visibility boosters or for high-value
+                  escrow transactions over $50,000.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 18. Product Roadmap V2 (REFINED) -->
+    <section class="section-pad">
+      <div class="container">
+        <div class="section-header" style="text-align:center;">
+          <div class="tag">Evolution</div>
+          <h2>Platform <span class="gradient-text">Roadmap</span></h2>
+        </div>
+        <div class="roadmap-v2" style="max-width:900px; margin:80px auto 0;">
+          <div class="roadmap-node reveal">
+            <h4 style="color:var(--accent-purple); margin-bottom:15px;">2026 Q2: AI Negotiation Bots</h4>
+            <p style="color:var(--text-muted); line-height:1.6;">Integrated AI agents that handle initial buyer
+              screening and basic price filters based on your preset seller logic.</p>
+          </div>
+          <div class="roadmap-node reveal delay-2">
+            <h4 style="color:var(--accent-mint); margin-bottom:15px;">2026 Q4: Immersive 3D Showrooms</h4>
+            <p style="color:var(--text-muted); line-height:1.6;">Full VR/AR integration allowing buyers to virtually
+              walk through homes and sit in car interiors from any headset.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 19. Community Reflection (PREMIUM CARD) -->
+    <section class="section-pad">
+      <div class="container">
+        <div class="reveal"
+          style="background:var(--bg-card); padding:80px; border-radius:50px; text-align:center; border:1px solid var(--border); position:relative; overflow:hidden;">
+          <div
+            style="position:absolute; top:-20px; left:50%; transform:translateX(-50%); font-size:120px; opacity:0.05; font-family:serif; font-style:italic;">
+            "</div>
+          <i data-lucide="quote" style="width:50px; height:50px; color:var(--accent-gold); margin-bottom:40px;"></i>
+          <p
+            style="font-size:32px; line-height:1.4; font-weight:700; font-family:'Syne', sans-serif; color:var(--text-primary); max-width:800px; margin:0 auto;">
+            "AdVerse is not just a platform; it's a movement. The trust level established here through verification is
+            unlike anything we've seen in the digital trade space."</p>
+          <div style="margin-top:50px;">
+            <div class="author-avatar" style="width:60px; height:60px; margin: 0 auto 15px;"><img
+                src="https://i.pravatar.cc/150?u=marcus" alt="marcus" style="width:100%; border-radius:50%;" /></div>
+            <h4 style="color:var(--text-primary);">Alexander Marcus</h4>
+            <span
+              style="font-size:14px; color:var(--text-muted); letter-spacing:2px; text-transform:uppercase;">Chairman,
+              Global Trade Council</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 20. Epic Final Master CTA -->
+    <section class="section-pad">
+      <div class="container">
+        <div class="epic-cta reveal"
+          style="padding:120px 40px; background:radial-gradient(circle at center, rgba(139, 92, 246, 0.15), transparent 70%), var(--bg-card2); text-align: center;">
+          <div class="tag"
+            style="margin: 0 auto 30px; background:rgba(0,245,160,0.15); color:var(--accent-mint); border-color:var(--accent-mint); padding:10px 25px; width: fit-content; display: block;">
+            Ready to Scale?</div>
+          <h2 style="font-size:clamp(40px, 8vw, 80px); margin-bottom:30px; line-height:1; text-align: center;">Evolve
+            Your <span class="gradient-text">Trade</span></h2>
+          <p
+            style="max-width:700px; margin:0 auto 60px; font-size:20px; line-height:1.9; opacity:0.7; text-align: center;">
+            Join the elite marketplace where high-value deals happen every minute. Sign up now and claim your free first
+            month of Pro Seller tools.</p>
+          <div style="display:flex; justify-content:center; gap:30px; flex-wrap:wrap;">
+            <a href="#" class="btn-primary" style="padding:25px 60px; font-size:22px;">Get Started Elite <i
+                data-lucide="arrow-right"></i></a>
+            <a href="#" class="btn-secondary"
+              style="padding:25px 60px; font-size:22px; background:rgba(255,255,255,0.03);">View Pricing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner container">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" style="margin-bottom: 20px;">
+          <div class="logo-icon"><i data-lucide="zap"></i></div>
+          <span class="logo-text">Ad<span>Verse</span></span>
+        </a>
+        <p style="font-size: 14px; color: var(--text-muted);">The world's most trusted classified ads marketplace for
+          premium goods and services.</p>
+      </div>
+      <div class="footer-links">
+        <h4 style="margin-bottom: 20px; font-size: 16px;">Quick Links</h4>
+        <ul style="list-style: none; display: grid; gap: 10px; font-size: 14px; color: var(--text-muted);">
+          <li><a href="#" style="color: inherit; text-decoration: none;">Featured Ads</a></li>
+          <li><a href="#" style="color: inherit; text-decoration: none;">Trending Deals</a></li>
+          <li><a href="#" style="color: inherit; text-decoration: none;">Safety Guide</a></li>
+          <li><a href="#" style="color: inherit; text-decoration: none;">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4 style="margin-bottom: 20px; font-size: 16px;">Support</h4>
+        <ul style="list-style: none; display: grid; gap: 10px; font-size: 14px; color: var(--text-muted);">
+          <li><a href="#" style="color: inherit; text-decoration: none;">Help Center</a></li>
+          <li><a href="#" style="color: inherit; text-decoration: none;">Terms of Use</a></li>
+          <li><a href="#" style="color: inherit; text-decoration: none;">Privacy Policy</a></li>
+          <li><a href="#" style="color: inherit; text-decoration: none;">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4 style="margin-bottom: 20px; font-size: 16px;">Social</h4>
+        <div style="display: flex; gap: 10px;">
+          <a href="#"
+            style="width: 36px; height: 36px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: var(--transition);"><i
+              data-lucide="facebook"></i></a>
+          <a href="#"
+            style="width: 36px; height: 36px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: var(--transition);"><i
+              data-lucide="twitter"></i></a>
+          <a href="#"
+            style="width: 36px; height: 36px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: var(--transition);"><i
+              data-lucide="instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    <div
+      style="border-top: 1px solid var(--border); padding: 30px 0; text-align: center; color: var(--text-muted); font-size: 13px;">
+      &copy; 2026 AdVerse Marketplace. All rights reserved. Designed with 💜 for the future of commerce.
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    function toggleRTL() {
+      const body = document.body;
+      body.classList.toggle('rtl');
+      document.getElementById('html-root').setAttribute('dir', body.classList.contains('rtl') ? 'rtl' : 'ltr');
+    }
+    function openMobileNav() {
+      document.getElementById('mobileNav').classList.add('open');
+      document.getElementById('overlay').classList.add('open');
+    }
+    function closeMobileNav() {
+      document.getElementById('mobileNav').classList.remove('open');
+      document.getElementById('overlay').classList.remove('open');
+    }
+    function toggleMobileSub(id, e) {
+      e.preventDefault();
+      document.getElementById(id).classList.toggle('open');
+    }
+    function toggleFAQ(btn) {
+      btn.parentElement.classList.toggle('open');
+    }
+
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const observer = new IntersectionObserver((e) => {
+      e.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    revealElements.forEach(el => observer.observe(el));
+
+    function animateCounters() {
+      document.querySelectorAll('.stat-num').forEach(stat => {
+        const targetStr = stat.getAttribute('data-target');
+        const target = parseFloat(targetStr);
+        let count = 0;
+        const step = target / 100;
+        const update = () => {
+          if (count < target) {
+            count += step;
+            let suffix = targetStr.includes('M') ? 'M' : (targetStr.includes('k') ? 'k' : (targetStr.includes('%') ? '%' : ''));
+            let displayVal = (target % 1 === 0) ? Math.ceil(count).toLocaleString() : count.toFixed(1);
+            stat.innerText = displayVal + suffix;
+            setTimeout(update, 10);
+          } else {
+            stat.innerText = targetStr;
+          }
+        };
+        update();
+      });
+    }
+    const statsSection = document.querySelector('.stat-v3-grid');
+    if (statsSection) {
+      const statsObserver = new IntersectionObserver((e) => {
+        if (e[0].isIntersecting) { animateCounters(); statsObserver.unobserve(statsSection); }
+      }, { threshold: 0.5 });
+      statsObserver.observe(statsSection);
+    }
+
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('mainHeader');
+      if (window.scrollY > 50) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    });
+  </script>
+</body>
+
+</html>
