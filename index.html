@@ -67,6 +67,9 @@
     </ul>
 
     <div class="header-right">
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle Theme">
+        <i data-lucide="sun"></i>
+      </button>
       <button class="btn-globe" id="rtlToggle" onclick="toggleRTL()" title="Toggle RTL/LTR">
         <i data-lucide="globe"></i>
       </button>
@@ -248,90 +251,7 @@
     </div>
   </section>
 
-  <section class="featured section-pad" id="featured">
-    <div class="container">
-      <div class="section-header">
-        <div class="tag"><i data-lucide="sparkles"></i> Spotlight Listings</div>
-        <h2>Featured <span class="gradient-text">Ads</span></h2>
-        <p>Handpicked premium listings from verified sellers across the platform.</p>
-      </div>
-      <div class="ads-grid">
-        <div class="ad-card reveal">
-          <img class="ad-img" src="images/villa.jpg" alt="Modern Villa">
-          <div class="ad-body">
-            <span class="ad-badge badge-hot"><i data-lucide="flame" style="width:12px"></i> Hot</span>
-            <div class="ad-title">Modern Villa with Pool</div>
-            <div class="ad-price">$850,000</div>
-            <div class="ad-meta">
-              <span><i data-lucide="map-pin" style="width:12px"></i> Miami, FL</span>
-              <span><i data-lucide="clock" style="width:12px"></i> 2h ago</span>
-            </div>
-          </div>
-        </div>
-        <div class="ad-card reveal delay-1">
-          <img class="ad-img" src="images/tesla.jpeg" alt="Tesla S Plaid">
-          <div class="ad-body">
-            <span class="ad-badge badge-top"><i data-lucide="award" style="width:12px"></i> Top Rated</span>
-            <div class="ad-title">Tesla Model S Plaid 2023</div>
-            <div class="ad-price">$89,000</div>
-            <div class="ad-meta">
-              <span><i data-lucide="map-pin" style="width:12px"></i> Austin, TX</span>
-              <span><i data-lucide="clock" style="width:12px"></i> 5h ago</span>
-            </div>
-          </div>
-        </div>
-        <div class="ad-card reveal delay-2">
-          <img class="ad-img" src="images/mac.png" alt="MacBook Pro">
-          <div class="ad-body">
-            <span class="ad-badge badge-new"><i data-lucide="zap" style="width:12px"></i> New</span>
-            <div class="ad-title">MacBook Pro M3 Max</div>
-            <div class="ad-price">$3,499</div>
-            <div class="ad-meta">
-              <span><i data-lucide="map-pin" style="width:12px"></i> NY, USA</span>
-              <span><i data-lucide="clock" style="width:12px"></i> 10m ago</span>
-            </div>
-          </div>
-        </div>
-        <div class="ad-card reveal delay-3">
-          <img class="ad-img" src="images/rolex.jpg" alt="Rolex Submariner">
-          <div class="ad-body">
-            <span class="ad-badge badge-hot"><i data-lucide="trending-up" style="width:12px"></i> Trending</span>
-            <div class="ad-title">Rolex Submariner Date</div>
-            <div class="ad-price">$12,500</div>
-            <div class="ad-meta">
-              <span><i data-lucide="map-pin" style="width:12px"></i> Dubai, UAE</span>
-              <span><i data-lucide="clock" style="width:12px"></i> 1h ago</span>
-            </div>
-          </div>
-        </div>
-        <div class="ad-card reveal">
-          <img class="ad-img" src="images/canon.avif" alt="Canon R5">
-          <div class="ad-body">
-            <span class="ad-badge badge-new"><i data-lucide="zap" style="width:12px"></i> New</span>
-            <div class="ad-title">Canon EOS R5 Mirrorless</div>
-            <div class="ad-price">$3,899</div>
-            <div class="ad-meta">
-              <span><i data-lucide="map-pin" style="width:12px"></i> London, UK</span>
-              <span><i data-lucide="clock" style="width:12px"></i> 3h ago</span>
-            </div>
-          </div>
-        </div>
-        <div class="ad-card reveal delay-1">
-          <img class="ad-img" src="images/air.webp" alt="AirPods Max">
-          <div class="ad-body">
-            <span class="ad-badge badge-top"><i data-lucide="award" style="width:12px"></i> Pick</span>
-            <div class="ad-title">AirPods Max - Silver</div>
-            <div class="ad-price">$549</div>
-            <div class="ad-meta">
-              <span><i data-lucide="map-pin" style="width:12px"></i> Paris, FR</span>
-              <span><i data-lucide="clock" style="width:12px"></i> 6h ago</span>
-            </div>
-          </div>
-        </div>
 
-      </div>
-    </div>
-  </section>
 
   <section class="how section-pad">
     <div class="container">
@@ -1049,21 +969,12 @@
           <li><a href="#" style="color: inherit; text-decoration: none;">Contact Us</a></li>
         </ul>
       </div>
-      <div class="footer-links">
-        <h4 style="margin-bottom: 20px; font-size: 16px;">Social</h4>
-        <div style="display: flex; gap: 10px;">
-          <a href="#"
-            style="width: 36px; height: 36px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: var(--transition);"
-            onmouseover="this.style.color='var(--accent-gold)'" onmouseout="this.style.color='var(--text-muted)'"><i
-              data-lucide="facebook"></i></a>
-          <a href="#"
-            style="width: 36px; height: 36px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: var(--transition);"
-            onmouseover="this.style.color='var(--accent-gold)'" onmouseout="this.style.color='var(--text-muted)'"><i
-              data-lucide="twitter"></i></a>
-          <a href="#"
-            style="width: 36px; height: 36px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: var(--transition);"
-            onmouseover="this.style.color='var(--accent-gold)'" onmouseout="this.style.color='var(--text-muted)'"><i
-              data-lucide="instagram"></i></a>
+      <div class="footer-links" style="min-width: 240px;">
+        <h4 style="margin-bottom: 20px; font-size: 16px;">Newsletter</h4>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 15px; line-height: 1.5;">Get the latest premium listings and market insights delivered to your inbox.</p>
+        <div style="display: flex; gap: 8px;">
+          <input type="email" placeholder="Enter your email" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 10px 15px; font-size: 13px; color: var(--text-primary); width: 100%; outline: none; transition: var(--transition);" onfocus="this.style.borderColor='var(--accent-gold)'" onblur="this.style.borderColor='var(--border)'">
+          <button style="background: var(--accent-gold); border: none; border-radius: 8px; width: 40px; height: 40px; color: #000; cursor: pointer; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: var(--transition);" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"><i data-lucide="send" style="width: 18px; height: 18px;"></i></button>
         </div>
       </div>
     </div>
@@ -1132,6 +1043,52 @@
       if (window.scrollY > 50) header.classList.add('scrolled');
       else header.classList.remove('scrolled');
     });
+
+    // Theme Toggle Logic
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+    }
+
+    function updateThemeIcon(theme) {
+      const icon = document.querySelector('#themeToggle i');
+      if (icon) {
+        icon.setAttribute('data-lucide', theme === 'light' ? 'moon' : 'sun');
+        if (window.lucide) lucide.createIcons();
+      }
+    }
+
+    (function () {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      document.addEventListener('DOMContentLoaded', () => {
+        updateThemeIcon(savedTheme);
+        highlightNav();
+      });
+    })();
+
+    function highlightNav() {
+      const path = window.location.pathname.split('/').pop() || 'index.html';
+      const navLinks = document.querySelectorAll('.nav a, .mobile-nav a');
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === path) {
+          link.classList.add('active');
+          const parentSub = link.closest('.dropdown, .mobile-sub');
+          if (parentSub) {
+            const parentLink = parentSub.previousElementSibling;
+            if (parentLink) parentLink.classList.add('active');
+          }
+        } else if (href !== '#') {
+          link.classList.remove('active');
+        }
+      });
+    }
+
   </script>
 </body>
 

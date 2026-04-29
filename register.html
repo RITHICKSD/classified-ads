@@ -111,6 +111,51 @@
       right: auto;
       left: 25px;
     }
+
+    .or-separator {
+      display: flex;
+      align-items: center;
+      margin: 30px 0;
+      color: rgba(255, 255, 255, 0.2);
+    }
+    .or-separator::before, .or-separator::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .or-separator span {
+      padding: 0 15px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .btn-social {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      font-family: 'Syne', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      cursor: pointer;
+      margin-bottom: 12px;
+      transition: all 0.3s ease;
+    }
+    .btn-social:hover {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: scale(1.02);
+    }
+    .btn-social img { width: 18px; height: 18px; object-fit: contain; }
   </style>
 </head>
 
@@ -121,8 +166,11 @@
     <div class="hero-orb-auth orb-v2"></div>
 
     <div class="auth-card reveal">
-      <div class="auth-controls" style="position: absolute; top: 25px; right: 25px;">
-        <button class="btn-globe" id="rtlToggle" onclick="toggleRTL()" title="Toggle RTL/LTR" style="background: rgba(255,255,255,0.05); border: 1px solid var(--border); width: 44px; height: 44px; border-radius: 12px; color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+      <div class="auth-controls" style="position: absolute; top: 25px; right: 25px; display: flex; gap: 10px;">
+        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle Theme" style="background: rgba(255,255,255,0.05); border: 1px solid var(--border); width: 44px; height: 44px; border-radius: 12px; color: var(--text-primary); cursor: pointer; display: flex; align-items: center; justify-content: center;">
+          <i data-lucide="sun"></i>
+        </button>
+        <button class="btn-globe" id="rtlToggle" onclick="toggleRTL()" title="Toggle RTL/LTR" style="background: rgba(255,255,255,0.05); border: 1px solid var(--border); width: 44px; height: 44px; border-radius: 12px; color: var(--text-primary); cursor: pointer; display: flex; align-items: center; justify-content: center;">
           <i data-lucide="globe"></i>
         </button>
       </div>
@@ -132,8 +180,15 @@
           <span class="logo-text">Ad<span>Verse</span></span>
         </a>
         <h1>Create <span class="gradient-text">Account</span></h1>
-        <p>Start your journey with AdVerse today</p>
+        <p>Start your premium journey with AdVerse today</p>
       </div>
+
+      <button class="btn-social">
+        <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" alt="Google" />
+        Sign up with Google
+      </button>
+      
+      <div class="or-separator" style="margin: 25px 0;"><span>OR</span></div>
 
       <form action="user-dashboard.html">
         <div class="form-v4-group">
@@ -144,18 +199,16 @@
           <label>Email Address</label>
           <input type="email" class="form-v4-input" placeholder="john@example.com" required />
         </div>
-        <div class="form-v4-group">
-          <label>Phone Number</label>
-          <input type="tel" class="form-v4-input" placeholder="(555) 123-4567" required />
-        </div>
         
-        <div class="form-v4-group">
-          <label>Password</label>
-          <input type="password" class="form-v4-input" placeholder="Create a password" required />
-        </div>
-        <div class="form-v4-group">
-          <label>Confirm Password</label>
-          <input type="password" class="form-v4-input" placeholder="Confirm your password" required />
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <div class="form-v4-group">
+            <label>Password</label>
+            <input type="password" class="form-v4-input" placeholder="••••••••" required />
+          </div>
+          <div class="form-v4-group">
+            <label>Confirm</label>
+            <input type="password" class="form-v4-input" placeholder="••••••••" required />
+          </div>
         </div>
 
         <div class="terms-row">
@@ -185,10 +238,32 @@
 
     // Reveal Animations
     const revealElements = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((e) => {
-      e.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    const observer = new IntersectionObserver((entry) => {
+      entry.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     revealElements.forEach(el => observer.observe(el));
+
+    // Theme Toggle Logic
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+    }
+    function updateThemeIcon(theme) {
+      const icon = document.querySelector('#themeToggle i');
+      if (icon) {
+        icon.setAttribute('data-lucide', theme === 'light' ? 'moon' : 'sun');
+        if (window.lucide) lucide.createIcons();
+      }
+    }
+    (function () {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      document.addEventListener('DOMContentLoaded', () => updateThemeIcon(savedTheme));
+    })();
   </script>
 </body>
 

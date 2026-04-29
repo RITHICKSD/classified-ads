@@ -17,6 +17,143 @@
    --transition: 0.35s cubic-bezier(.4, 0, .2, 1);
 }
 
+[data-theme="light"] {
+   --bg-primary: #F8F9FA;
+   --bg-secondary: #FFFFFF;
+   --bg-card: #FFFFFF;
+   --bg-card2: #F1F3F5;
+   --text-primary: #1A1A1A;
+   --text-muted: #666666;
+   --border: rgba(0, 0, 0, 0.1);
+}
+
+/* Fixed Dark Sections — header, footer, mobile-nav and CTA remain always dark */
+.header, 
+footer, 
+.mobile-nav,
+.cta-final {
+    --bg-primary: #07071A;
+    --bg-secondary: #0E0E2C;
+    --bg-card: #13133A;
+    --bg-card2: #1A1A4A;
+    --text-primary: #F0F0FF;
+    --text-muted: #9999CC;
+    --border: rgba(139, 92, 246, 0.2);
+}
+
+.header .logo-text,
+footer .logo-text {
+    color: #F0F0FF !important;
+}
+
+.header a,
+footer a {
+    color: var(--text-muted);
+}
+
+.header .nav > li > a.active,
+.header .nav > li > a:hover {
+    color: #F0F0FF;
+}
+
+/* ── HERO LIGHT MODE ── */
+/* Home 1 hero */
+[data-theme="light"] .hero {
+    background: linear-gradient(135deg, #f0eeff 0%, #e8f4ff 50%, #f5f0ff 100%) !important;
+}
+[data-theme="light"] .hero h1,
+[data-theme="light"] .hero h2,
+[data-theme="light"] .hero h3,
+[data-theme="light"] .hero h4,
+[data-theme="light"] .hero p,
+[data-theme="light"] .hero span,
+[data-theme="light"] .hero li {
+    color: #1A1A1A !important;
+}
+[data-theme="light"] .hero .hero-sub,
+[data-theme="light"] .hero .hero-desc {
+    color: #444 !important;
+}
+[data-theme="light"] .hero-badge {
+    background: rgba(255,255,255,0.85);
+    border: 1px solid rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+}
+[data-theme="light"] .hero-badge .badge-num,
+[data-theme="light"] .hero-badge .badge-label {
+    color: #1A1A1A !important;
+}
+[data-theme="light"] .hero .search-bar {
+    background: rgba(255,255,255,0.9);
+    border: 1px solid rgba(0,0,0,0.12);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+[data-theme="light"] .hero .search-bar input,
+[data-theme="light"] .hero .search-bar select {
+    color: #1A1A1A;
+    background: transparent;
+}
+[data-theme="light"] .hero .search-bar input::placeholder {
+    color: #888;
+}
+[data-theme="light"] .hero-orb {
+    opacity: 0.3;
+}
+
+/* Home 2 hero */
+[data-theme="light"] .hero-v5-redesign {
+    background: linear-gradient(135deg, #f0eeff 0%, #e8f4ff 60%, #f5f0ff 100%) !important;
+}
+[data-theme="light"] .hero-v5-redesign h1,
+[data-theme="light"] .hero-v5-redesign h2,
+[data-theme="light"] .hero-v5-redesign p,
+[data-theme="light"] .hero-v5-redesign span {
+    color: #1A1A1A !important;
+}
+[data-theme="light"] .hero-v5-redesign .logo-text {
+    color: #1A1A1A !important;
+}
+
+/* About / Services / Contact hero */
+[data-theme="light"] .hero-about-v4 {
+    background: linear-gradient(135deg, #eeeaff 0%, #ddeeff 60%, #f5eeff 100%) !important;
+}
+[data-theme="light"] .hero-about-v4 h1,
+[data-theme="light"] .hero-about-v4 p {
+    color: #1A1A1A !important;
+}
+[data-theme="light"] .hero-about-v4 .tag {
+    background: rgba(139,92,246,0.12) !important;
+}
+[data-theme="light"] .hero-about-v4-bg {
+    opacity: 0.06 !important;
+}
+[data-theme="light"] .hero-about-v4-overlay {
+    background: rgba(255,255,255,0.55) !important;
+}
+[data-theme="light"] .hero-about-orb {
+    opacity: 0.25 !important;
+}
+
+.theme-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    border-radius: 8px;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition);
+}
+
+.theme-toggle:hover {
+    border-color: var(--accent-purple);
+    color: var(--accent-purple);
+}
+
+
 .lucide {
    width: 24px;
    height: 24px;
@@ -47,7 +184,434 @@ body {
    width: 100%;
    word-wrap: break-word;
    overflow-wrap: break-word;
+   transition: background 0.4s ease, color 0.4s ease;
 }
+
+
+/* ══════════════════════════════════════════════════════
+   COMPREHENSIVE LIGHT MODE OVERRIDES
+   Fixes all hardcoded #fff / #F0F0FF text that becomes
+   invisible on the light background.
+══════════════════════════════════════════════════════ */
+
+/* ── Base section backgrounds ── */
+[data-theme="light"] body,
+[data-theme="light"] section,
+[data-theme="light"] .section-pad,
+[data-theme="light"] .stats {
+   background: var(--bg-primary);
+   color: var(--text-primary);
+}
+
+/* ── All headings ── */
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4,
+[data-theme="light"] h5 {
+   color: var(--text-primary) !important;
+}
+
+/* ── Paragraphs & spans with hardcoded colors ── */
+[data-theme="light"] p,
+[data-theme="light"] span,
+[data-theme="light"] small,
+[data-theme="light"] li,
+[data-theme="light"] label {
+   color: var(--text-primary);
+}
+
+/* ── Stat cards (Home 1 counter section) ── */
+[data-theme="light"] .stat-card {
+   background: var(--bg-card);
+   border-color: var(--border);
+   box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+[data-theme="light"] .stat-num,
+[data-theme="light"] .stat-label {
+   color: var(--text-primary) !important;
+}
+
+/* ── Stat V3 grid (About, Home2, Services) ── */
+[data-theme="light"] .stat-v3-card {
+   background: var(--bg-card);
+   border-color: var(--border);
+   box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+[data-theme="light"] .stat-v3-card h3,
+[data-theme="light"] .stat-v3-card p {
+   color: var(--text-primary) !important;
+}
+
+/* ── Category cards ── */
+[data-theme="light"] .cat-card,
+[data-theme="light"] .cat-card-v2 {
+   background: var(--bg-card);
+   border-color: var(--border);
+   box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+[data-theme="light"] .cat-name,
+[data-theme="light"] .cat-card-v2 h4,
+[data-theme="light"] .cat-card-v2 span {
+   color: var(--text-primary) !important;
+}
+
+/* ── User / Seller cards ── */
+[data-theme="light"] .user-card-v2 {
+   background: var(--bg-card);
+   border-color: var(--border);
+}
+[data-theme="light"] .user-card-v2 h4,
+[data-theme="light"] .user-card-v2 p {
+   color: var(--text-primary) !important;
+}
+
+/* ── Testimonial cards ── */
+[data-theme="light"] .testi-card {
+   background: var(--bg-card);
+   border-color: var(--border);
+}
+[data-theme="light"] .testi-text,
+[data-theme="light"] .author-name,
+[data-theme="light"] .author-role {
+   color: var(--text-primary) !important;
+}
+
+/* ── Why cards / Feature cards ── */
+[data-theme="light"] .why-card {
+   background: var(--bg-card);
+   border-color: var(--border);
+}
+[data-theme="light"] .why-card h3,
+[data-theme="light"] .why-card p {
+   color: var(--text-primary) !important;
+}
+
+/* ── Step cards (How it Works) ── */
+[data-theme="light"] .step {
+   background: transparent;
+}
+[data-theme="light"] .step h3,
+[data-theme="light"] .step p {
+   color: var(--text-primary) !important;
+}
+
+/* ── Pricing cards ── */
+[data-theme="light"] .price-card {
+   background: var(--bg-card);
+   border-color: var(--border);
+   box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+[data-theme="light"] .price-card .price-label,
+[data-theme="light"] .price-card .price-amount,
+[data-theme="light"] .price-card .price-period,
+[data-theme="light"] .price-card .price-features li {
+   color: var(--text-primary) !important;
+}
+[data-theme="light"] .price-card.popular {
+   background: linear-gradient(135deg, #6d28d9, #8B5CF6);
+   color: #fff !important;
+}
+[data-theme="light"] .price-card.popular .price-label,
+[data-theme="light"] .price-card.popular .price-amount,
+[data-theme="light"] .price-card.popular .price-period,
+[data-theme="light"] .price-card.popular li {
+   color: #fff !important;
+}
+
+/* ── Recent listings table ── */
+[data-theme="light"] .recent-item {
+   background: var(--bg-card);
+   border-color: var(--border);
+}
+[data-theme="light"] .recent-info h4,
+[data-theme="light"] .recent-price,
+[data-theme="light"] .recent-loc,
+[data-theme="light"] .recent-time {
+   color: var(--text-primary) !important;
+}
+
+/* ── Trending scroll cards ── */
+[data-theme="light"] .trend-card {
+   background: var(--bg-card);
+   border-color: var(--border);
+}
+[data-theme="light"] .trend-title,
+[data-theme="light"] .trend-loc {
+   color: var(--text-primary) !important;
+}
+
+/* ── Split / Feature sections ── */
+[data-theme="light"] .feature-list li,
+[data-theme="light"] .split-content p,
+[data-theme="light"] .split-content h2 {
+   color: var(--text-primary) !important;
+}
+
+/* ── Community / CP items ── */
+[data-theme="light"] .cp-text strong,
+[data-theme="light"] .cp-text span {
+   color: var(--text-primary) !important;
+}
+
+/* ── App section ── */
+[data-theme="light"] .app-badge {
+   background: var(--bg-card);
+   border-color: var(--border);
+}
+[data-theme="light"] .app-badge-text strong,
+[data-theme="light"] .app-badge-text small {
+   color: var(--text-primary) !important;
+}
+
+/* ── Seller chips ── */
+[data-theme="light"] .seller-chip {
+   background: var(--bg-card);
+   border-color: var(--border);
+}
+[data-theme="light"] .seller-info strong,
+[data-theme="light"] .seller-info small {
+   color: var(--text-primary) !important;
+}
+
+/* ── Hero badges ── */
+[data-theme="light"] .hero-badge {
+   background: rgba(255,255,255,0.9);
+   border-color: var(--border);
+}
+[data-theme="light"] .badge-num,
+[data-theme="light"] .badge-label {
+   color: var(--text-primary) !important;
+}
+
+/* ── Ticker / Marquee ── */
+[data-theme="light"] .ticker {
+   background: var(--bg-secondary);
+   border-top: 1px solid var(--border);
+   border-bottom: 1px solid var(--border);
+}
+[data-theme="light"] .ticker-item {
+   color: var(--text-primary) !important;
+}
+
+/* ── Dropdown nav ── */
+[data-theme="light"] .dropdown {
+   background: var(--bg-card);
+   border-color: var(--border);
+   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* ── Section header text ── */
+[data-theme="light"] .section-header h2,
+[data-theme="light"] .section-header p {
+   color: var(--text-primary) !important;
+}
+
+/* ── Hero search bar (global, outside light scoping) ── */
+[data-theme="light"] .search-bar {
+   background: rgba(255,255,255,0.92);
+   border: 1px solid rgba(0,0,0,0.1);
+   box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+}
+[data-theme="light"] .search-bar input,
+[data-theme="light"] .search-bar select {
+   color: #1A1A1A;
+   background: transparent;
+}
+[data-theme="light"] .search-bar input::placeholder {
+   color: #888;
+}
+[data-theme="light"] .search-bar .search-divider {
+   background: rgba(0,0,0,0.1);
+}
+
+
+/* ── Activity V3 card (Home2, Services) ── */
+[data-theme="light"] .activity-v3-card {
+   background: var(--bg-card);
+   border-color: var(--border);
+}
+[data-theme="light"] .activity-v3-card h2,
+[data-theme="light"] .activity-v3-card p,
+[data-theme="light"] .activity-text,
+[data-theme="light"] .activity-val {
+   color: var(--text-primary) !important;
+}
+[data-theme="light"] .pulse-stat-card h3 {
+   color: var(--text-primary) !important;
+}
+[data-theme="light"] .pulse-stat-card small {
+   color: var(--text-muted) !important;
+}
+
+/* ── Roadmap nodes ── */
+[data-theme="light"] .roadmap-node {
+   background: var(--bg-card);
+   border-color: var(--border);
+}
+[data-theme="light"] .roadmap-node p {
+   color: var(--text-primary) !important;
+}
+
+/* ── FAQ ── */
+[data-theme="light"] .faq-item {
+   background: var(--bg-card);
+   border-color: var(--border);
+}
+[data-theme="light"] .faq-q {
+   color: var(--text-primary) !important;
+}
+[data-theme="light"] .faq-a p {
+   color: var(--text-muted) !important;
+}
+
+/* ── Pricing V4 (Services) ── */
+[data-theme="light"] .pricing-v4-card {
+   background: var(--bg-card);
+   border-color: var(--border);
+}
+[data-theme="light"] .pricing-v4-card h4,
+[data-theme="light"] .pricing-v4-card .price,
+[data-theme="light"] .pricing-v4-list li {
+   color: var(--text-primary) !important;
+}
+[data-theme="light"] .pricing-v4-card.popular h4,
+[data-theme="light"] .pricing-v4-card.popular .price,
+[data-theme="light"] .pricing-v4-card.popular li {
+   color: #fff !important;
+}
+
+/* ── Social cards (Contact) ── */
+[data-theme="light"] .social-card-v4 {
+   background: var(--bg-card);
+   border-color: var(--border);
+}
+[data-theme="light"] .social-card-v4 h5,
+[data-theme="light"] .social-card-v4 span {
+   color: var(--text-primary) !important;
+}
+
+/* ── Form inputs ── */
+[data-theme="light"] .form-v4-input,
+[data-theme="light"] .form-v4-textarea {
+   background: var(--bg-card);
+   border-color: var(--border);
+   color: var(--text-primary) !important;
+}
+[data-theme="light"] .form-v4-group label {
+   color: var(--text-primary) !important;
+}
+[data-theme="light"] .form-v4-input::placeholder,
+[data-theme="light"] .form-v4-textarea::placeholder {
+   color: var(--text-muted);
+}
+
+/* ── Map UI overlaid location chips ── */
+[data-theme="light"] .map-ui > div h5 {
+   color: var(--text-primary) !important;
+}
+
+/* ── Img V3 placeholder (split images) ── */
+[data-theme="light"] .img-v3-placeholder {
+   background: var(--bg-card);
+   border-color: var(--border);
+}
+
+/* ── Split V3 headings/paragraphs ── */
+[data-theme="light"] .split-v3 h2,
+[data-theme="light"] .split-v3 p,
+[data-theme="light"] .split-v3 h4 {
+   color: var(--text-primary) !important;
+}
+
+/* ── Glow category cards ── */
+[data-theme="light"] .glow-categories > div h4,
+[data-theme="light"] .glow-categories > div p {
+   color: var(--text-primary) !important;
+}
+
+/* ── Trust section ── */
+[data-theme="light"] .trust-inner h2,
+[data-theme="light"] .trust-inner p,
+[data-theme="light"] .trust-point h4 {
+   color: var(--text-primary) !important;
+}
+
+/* ── Ensure hero dark-mode base colours are explicit
+   (no longer locked by the scoped-var block) ── */
+.hero,
+.hero-v5-redesign,
+.hero-about-v4 {
+    color: #F0F0FF;
+}
+.hero h1, .hero h2, .hero h3, .hero p, .hero span,
+.hero-v5-redesign h1, .hero-v5-redesign h2, .hero-v5-redesign p, .hero-v5-redesign span,
+.hero-about-v4 h1, .hero-about-v4 p {
+    color: #F0F0FF;
+}
+.hero a, .hero-v5-redesign a {
+    color: rgba(240,240,255,0.7);
+}
+
+
+/* ── CTA Final section (Home 1) — keep dark ── */
+.cta-final h2,
+.cta-final p {
+   color: inherit;
+}
+
+/* ── Epic CTA (Home 2, Services, About) ── */
+[data-theme="light"] .epic-cta {
+   background: var(--bg-card) !important;
+   border-color: var(--border);
+}
+[data-theme="light"] .epic-cta h2,
+[data-theme="light"] .epic-cta p {
+   color: var(--text-primary) !important;
+}
+
+/* ── Flash banner (Home 2) — keep colourful, just fix text ── */
+[data-theme="light"] .flash-banner h2,
+[data-theme="light"] .flash-banner p {
+   color: #fff !important;
+}
+
+/* ── Marquee / partner logos ── */
+[data-theme="light"] .marquee-v2-content h2,
+[data-theme="light"] .marquee-v2-content h4 {
+   color: var(--text-primary) !important;
+   opacity: 0.25 !important;
+}
+
+/* ── Inline hardcoded white in section backgrounds ── */
+[data-theme="light"] section[style*="background:var(--bg-secondary)"],
+[data-theme="light"] section[style*="background: var(--bg-secondary)"] {
+   background: var(--bg-secondary) !important;
+}
+
+/* ── Auth pages — keep card dark-glass look ── */
+[data-theme="light"] .auth-page {
+   background: linear-gradient(135deg, #f0f0ff 0%, #e8e8ff 100%);
+}
+[data-theme="light"] .auth-card {
+   background: rgba(255,255,255,0.9);
+   border-color: rgba(0,0,0,0.1);
+   box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+}
+[data-theme="light"] .auth-header h1,
+[data-theme="light"] .auth-header p,
+[data-theme="light"] .auth-footer,
+[data-theme="light"] .remember-me,
+[data-theme="light"] .terms-row {
+   color: var(--text-primary) !important;
+}
+[data-theme="light"] .btn-social {
+   background: rgba(0,0,0,0.03);
+   border-color: rgba(0,0,0,0.12);
+   color: var(--text-primary) !important;
+}
+
+
 
 body.rtl {
    direction: rtl;
@@ -136,6 +700,10 @@ body.rtl {
    position: relative
 }
 
+.nav>li {
+   position: relative;
+}
+
 .nav>li>a {
    display: flex;
    align-items: center;
@@ -147,17 +715,34 @@ body.rtl {
    color: var(--text-muted);
    text-decoration: none;
    border-radius: 8px;
-   transition: color var(--transition), background var(--transition)
+   transition: color var(--transition), background var(--transition);
+   position: relative;
 }
 
-.nav>li>a:hover,
-.nav>li>a.active {
+.nav>li>a::after {
+   content: '';
+   position: absolute;
+   bottom: 0;
+   left: 14px;
+   right: 14px;
+   height: 2px;
+   background: var(--accent-gold);
+   transform: scaleX(0);
+   transition: transform var(--transition);
+   transform-origin: right;
+}
+
+.nav>li>a:hover, .nav>li>a.active {
    color: var(--text-primary);
-   background: rgba(139, 92, 246, 0.12)
 }
 
 .nav>li>a.active {
-   color: var(--accent-gold)
+   color: var(--accent-gold);
+}
+
+.nav>li>a.active::after {
+   transform: scaleX(1);
+   transform-origin: left;
 }
 
 .nav>li>a svg {
@@ -353,6 +938,12 @@ body.rtl {
 
 .mobile-nav ul li a:hover {
    color: var(--accent-gold)
+}
+
+.mobile-nav ul li a.active {
+   color: var(--accent-gold);
+   border-bottom: 2px solid var(--accent-gold);
+   background: rgba(255, 184, 0, 0.05);
 }
 
 .mobile-sub {
@@ -3359,6 +3950,36 @@ footer {
     z-index: 10;
 }
 
+/* Light mode: give the popular card a solid deep-purple so white text is legible */
+[data-theme="light"] .pricing-v4-card.popular {
+    background: linear-gradient(145deg, #5b21b6, #7c3aed) !important;
+    border-color: #7c3aed !important;
+}
+
+/* Force ALL children of the popular card to white in light mode */
+[data-theme="light"] .pricing-v4-card.popular *,
+[data-theme="light"] .pricing-v4-card.popular h4,
+[data-theme="light"] .pricing-v4-card.popular h2,
+[data-theme="light"] .pricing-v4-card.popular h3,
+[data-theme="light"] .pricing-v4-card.popular h5,
+[data-theme="light"] .pricing-v4-card.popular p,
+[data-theme="light"] .pricing-v4-card.popular span,
+[data-theme="light"] .pricing-v4-card.popular li,
+[data-theme="light"] .pricing-v4-card.popular .price,
+[data-theme="light"] .pricing-v4-card.popular label {
+    color: #fff !important;
+}
+
+[data-theme="light"] .pricing-v4-card.popular .pricing-v4-list li {
+    border-bottom-color: rgba(255,255,255,0.15) !important;
+}
+
+[data-theme="light"] .pricing-v4-card.popular .btn-primary {
+    background: #fff;
+    color: #5b21b6;
+    border-color: #fff;
+}
+
 .pricing-v4-card.popular::after {
     content: 'MOST POPULAR';
     position: absolute;
@@ -3398,7 +4019,7 @@ footer {
     padding: 15px 0;
     font-size: 15px;
     color: var(--text-muted);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid var(--border);
     display: flex;
     align-items: center;
     gap: 12px;

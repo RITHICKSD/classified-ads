@@ -55,6 +55,18 @@
             .dash-stat-grid, .grid-four { grid-template-columns: 1fr; }
             .dash-content { padding: 25px 15px; }
         }
+
+        /* Light Mode Overrides */
+        [data-theme="light"] .dash-body { background: #F8FAF9; color: #07071A; }
+        [data-theme="light"] .dash-sidebar { background: #FFFFFF; border-right: 1px solid #E2E8F0; }
+        [data-theme="light"] .dash-content { background: radial-gradient(circle at 10% 10%, rgba(0,245,160,0.02), transparent 40%); }
+        [data-theme="light"] .dash-card { background: #FFFFFF; border: 1px solid #E2E8F0; color: #07071A; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+        [data-theme="light"] .box { background: #FFFFFF; border: 1px solid #E2E8F0; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+        [data-theme="light"] .dash-card h5, [data-theme="light"] .dash-nav-item, [data-theme="light"] #tabDesc { color: #64748B; }
+        [data-theme="light"] .dash-nav-item:hover, [data-theme="light"] .dash-nav-item.active { background: rgba(0,245,160,0.05); color: #00F5A0; }
+        [data-theme="light"] h1, [data-theme="light"] h2, [data-theme="light"] h3, [data-theme="light"] h4 { color: #07071A; }
+        [data-theme="light"] table tr { border-bottom-color: #F1F5F9; }
+        [data-theme="light"] table tr th { color: #64748B; }
     </style>
 </head>
 <body class="dash-body">
@@ -82,9 +94,14 @@
 
         <div style="margin-top:auto; padding-top:20px; display:flex; flex-direction:column; align-items:center; gap:12px;">
             <a href="index.html" class="dash-nav-item" style="color:#FF3CAC; width:100%;"><i data-lucide="log-out"></i> <span>Platform Exit</span></a>
-            <button onclick="toggleDirection()" title="Toggle LTR / RTL" style="background:transparent; border:none; color:#00F5A0; cursor:pointer; display:flex; align-items:center; justify-content:center; padding:10px; transition:0.3s;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">
-                <i data-lucide="globe" style="width:20px; height:20px;"></i>
-            </button>
+            <div style="display:flex; gap:10px; justify-content:center;">
+              <button onclick="toggleTheme()" id="themeToggle" title="Toggle Theme" style="background:transparent; border:none; color:#00F5A0; cursor:pointer; display:flex; align-items:center; justify-content:center; padding:10px; transition:0.3s;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">
+                  <i data-lucide="sun" style="width:20px; height:20px;"></i>
+              </button>
+              <button onclick="toggleDirection()" title="Toggle LTR / RTL" style="background:transparent; border:none; color:#00F5A0; cursor:pointer; display:flex; align-items:center; justify-content:center; padding:10px; transition:0.3s;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">
+                  <i data-lucide="globe" style="width:20px; height:20px;"></i>
+              </button>
+            </div>
         </div>
     </aside>
 
@@ -306,6 +323,16 @@
     }
 
     const chartStore = {};
+    
+    function getChartColors() {
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        return {
+            grid: isLight ? 'rgba(0,0,0,0.05)' : 'rgba(255,255,255,0.05)',
+            text: isLight ? '#64748B' : '#9999CC',
+            bg: isLight ? 'rgba(0,245,160,0.02)' : 'rgba(0,245,160,0.05)'
+        };
+    }
+
     function initCharts(tab) {
         if(tab === 'overview') renderOverview();
         else if(tab === 'verification') renderKyc();
@@ -315,36 +342,77 @@
     }
 
     function renderOverview() {
-        if(chartStore.admLine) return;
-        chartStore.admLine = new Chart(document.getElementById('admLine').getContext('2d'), { type:'line', data:{ labels:['Jan','Feb','Mar','Apr','May','Jun'], datasets:[{ label:'Volume', data:[120,450,300,900,1200,800], borderColor:'#00F5A0', tension:0.4, fill:true, backgroundColor:'rgba(0,245,160,0.05)' }]}, options:{ maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{y:{grid:{color:'rgba(255,255,255,0.05)'},ticks:{color:'#9999CC'}},x:{ticks:{color:'#9999CC'}}} }});
-        chartStore.admPolar = new Chart(document.getElementById('admPolar').getContext('2d'), { type:'polarArea', data:{ labels:['UK','US','EU','AS'], datasets:[{ data:[45,25,20,10], backgroundColor:['#00F5A0','#8B5CF6','#FFB800','#FF3CAC'], borderWidth:0 }]}, options:{ maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{r:{grid:{color:'rgba(255,255,255,0.05)'},ticks:{display:false}}} }});
+        if(chartStore.admLine) chartStore.admLine.destroy();
+        const colors = getChartColors();
+        chartStore.admLine = new Chart(document.getElementById('admLine').getContext('2d'), { type:'line', data:{ labels:['Jan','Feb','Mar','Apr','May','Jun'], datasets:[{ label:'Volume', data:[120,450,300,900,1200,800], borderColor:'#00F5A0', tension:0.4, fill:true, backgroundColor:colors.bg }]}, options:{ maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{y:{grid:{color:colors.grid},ticks:{color:colors.text}},x:{ticks:{color:colors.text}}} }});
+        
+        if(chartStore.admPolar) chartStore.admPolar.destroy();
+        chartStore.admPolar = new Chart(document.getElementById('admPolar').getContext('2d'), { type:'polarArea', data:{ labels:['UK','US','EU','AS'], datasets:[{ data:[45,25,20,10], backgroundColor:['#00F5A0','#8B5CF6','#FFB800','#FF3CAC'], borderWidth:0 }]}, options:{ maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{r:{grid:{color:colors.grid},ticks:{display:false}}} }});
     }
 
     function renderKyc() {
-        if(chartStore.admKyc) return;
-        chartStore.admKyc = new Chart(document.getElementById('admKyc').getContext('2d'), { type:'bar', data:{ labels:['M','T','W','T','F'], datasets:[{ label:'Approvals', data:[65,59,80,81,56], backgroundColor:'#00F5A0', borderRadius:5 }]}, options:{ maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{y:{grid:{color:'rgba(255,255,255,0.05)'},ticks:{color:'#9999CC'}},x:{ticks:{color:'#9999CC'}}} }});
-        chartStore.admKycPie = new Chart(document.getElementById('admKycPie').getContext('2d'), { type:'doughnut', data:{ labels:['Passport','Bio-Finger','Face-ID'], datasets:[{ data:[60,25,15], backgroundColor:['#00F5A0','#8B5CF6','#FFB800'], borderWidth:0 }]}, options:{ maintainAspectRatio:false, plugins:{legend:{position:'bottom',labels:{color:'#9999CC'}}} }});
+        if(chartStore.admKyc) chartStore.admKyc.destroy();
+        const colors = getChartColors();
+        chartStore.admKyc = new Chart(document.getElementById('admKyc').getContext('2d'), { type:'bar', data:{ labels:['M','T','W','T','F'], datasets:[{ label:'Approvals', data:[65,59,80,81,56], backgroundColor:'#00F5A0', borderRadius:5 }]}, options:{ maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{y:{grid:{color:colors.grid},ticks:{color:colors.text}},x:{ticks:{color:colors.text}}} }});
+        
+        if(chartStore.admKycPie) chartStore.admKycPie.destroy();
+        chartStore.admKycPie = new Chart(document.getElementById('admKycPie').getContext('2d'), { type:'doughnut', data:{ labels:['Passport','Bio-Finger','Face-ID'], datasets:[{ data:[60,25,15], backgroundColor:['#00F5A0','#8B5CF6','#FFB800'], borderWidth:0 }]}, options:{ maintainAspectRatio:false, plugins:{legend:{position:'bottom',labels:{color:colors.text}}} }});
     }
 
     function renderDisputes() {
-        if(chartStore.admDisputeLine) return;
-        chartStore.admDisputeLine = new Chart(document.getElementById('admDisputeLine').getContext('2d'), { type:'line', data:{ labels:['W1','W2','W3','W4'], datasets:[{ label:'Cases', data:[12,19,10,24], borderColor:'#FF3CAC', tension:0.4, fill:false }]}, options:{ maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{y:{grid:{color:'rgba(255,255,255,0.05)'},ticks:{color:'#9999CC'}},x:{ticks:{color:'#9999CC'}}} }});
-        chartStore.admDisputePie = new Chart(document.getElementById('admDisputePie').getContext('2d'), { type:'pie', data:{ labels:['Bounced','Service','Fraud'], datasets:[{ data:[50,30,20], backgroundColor:['#FFB800','#8B5CF6','#FF3CAC'], borderWidth:0 }]}, options:{ maintainAspectRatio:false, plugins:{legend:{position:'bottom',labels:{color:'#9999CC'}}} }});
+        if(chartStore.admDisputeLine) chartStore.admDisputeLine.destroy();
+        const colors = getChartColors();
+        chartStore.admDisputeLine = new Chart(document.getElementById('admDisputeLine').getContext('2d'), { type:'line', data:{ labels:['W1','W2','W3','W4'], datasets:[{ label:'Cases', data:[12,19,10,24], borderColor:'#FF3CAC', tension:0.4, fill:false }]}, options:{ maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{y:{grid:{color:colors.grid},ticks:{color:colors.text}},x:{ticks:{color:colors.text}}} }});
+        
+        if(chartStore.admDisputePie) chartStore.admDisputePie.destroy();
+        chartStore.admDisputePie = new Chart(document.getElementById('admDisputePie').getContext('2d'), { type:'pie', data:{ labels:['Bounced','Service','Fraud'], datasets:[{ data:[50,30,20], backgroundColor:['#FFB800','#8B5CF6','#FF3CAC'], borderWidth:0 }]}, options:{ maintainAspectRatio:false, plugins:{legend:{position:'bottom',labels:{color:colors.text}}} }});
     }
 
     function renderNodes() {
-        if(chartStore.admNodeRadar) return;
-        chartStore.admNodeRadar = new Chart(document.getElementById('admNodeRadar').getContext('2d'), { type:'radar', data:{ labels:['CPU','RAM','IO','Net','Auth','API'], datasets:[{ label:'LHR-01', data:[80,70,90,60,85,95], borderColor:'#00F5A0', backgroundColor:'rgba(0,245,160,0.1)' }]}, options:{ maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{r:{grid:{color:'rgba(255,255,255,0.1)'},angleLines:{color:'rgba(255,255,255,0.1)'},pointLabels:{color:'#9999CC'}}} }});
-        chartStore.admNodePie = new Chart(document.getElementById('admNodePie').getContext('2d'), { type:'doughnut', data:{ labels:['Cloud','Edge','Bare'], datasets:[{ data:[70,20,10], backgroundColor:['#00F5A0','#8B5CF6','#FF3CAC'], borderWidth:0 }]}, options:{ maintainAspectRatio:false, plugins:{legend:{position:'bottom',labels:{color:'#9999CC'}}} }});
+        if(chartStore.admNodeRadar) chartStore.admNodeRadar.destroy();
+        const colors = getChartColors();
+        chartStore.admNodeRadar = new Chart(document.getElementById('admNodeRadar').getContext('2d'), { type:'radar', data:{ labels:['CPU','RAM','IO','Net','Auth','API'], datasets:[{ label:'LHR-01', data:[80,70,90,60,85,95], borderColor:'#00F5A0', backgroundColor:'rgba(0,245,160,0.1)' }]}, options:{ maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{r:{grid:{color:colors.grid},angleLines:{color:colors.grid},pointLabels:{color:colors.text}}} }});
+        
+        if(chartStore.admNodePie) chartStore.admNodePie.destroy();
+        chartStore.admNodePie = new Chart(document.getElementById('admNodePie').getContext('2d'), { type:'doughnut', data:{ labels:['Cloud','Edge','Bare'], datasets:[{ data:[70,20,10], backgroundColor:['#00F5A0','#8B5CF6','#FF3CAC'], borderWidth:0 }]}, options:{ maintainAspectRatio:false, plugins:{legend:{position:'bottom',labels:{color:colors.text}}} }});
     }
 
     function renderRevenue() {
-        if(chartStore.admRevBar) return;
-        chartStore.admRevBar = new Chart(document.getElementById('admRevBar').getContext('2d'), { type:'bar', data:{ labels:['Q1','Q2','Q3','Q4'], datasets:[{ label:'Revenue (M)', data:[1.2, 2.4, 3.8, 5.1], backgroundColor:'#00F5A0' }]}, options:{ maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{y:{grid:{color:'rgba(255,255,255,0.05)'},ticks:{color:'#9999CC'}},x:{ticks:{color:'#9999CC'}}} }});
-        chartStore.admRevDoughnut = new Chart(document.getElementById('admRevDoughnut').getContext('2d'), { type:'doughnut', data:{ labels:['Fees','Premium','Ads'], datasets:[{ data:[40,40,20], backgroundColor:['#00F5A0', '#8B5CF6', '#FFB800'], borderWidth:0 }]}, options:{ maintainAspectRatio:false, plugins:{legend:{position:'bottom',labels:{color:'#9999CC'}}} }});
+        if(chartStore.admRevBar) chartStore.admRevBar.destroy();
+        const colors = getChartColors();
+        chartStore.admRevBar = new Chart(document.getElementById('admRevBar').getContext('2d'), { type:'bar', data:{ labels:['Q1','Q2','Q3','Q4'], datasets:[{ label:'Revenue (M)', data:[1.2, 2.4, 3.8, 5.1], backgroundColor:'#00F5A0' }]}, options:{ maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{y:{grid:{color:colors.grid},ticks:{color:colors.text}},x:{ticks:{color:colors.text}}} }});
+        
+        if(chartStore.admRevDoughnut) chartStore.admRevDoughnut.destroy();
+        chartStore.admRevDoughnut = new Chart(document.getElementById('admRevDoughnut').getContext('2d'), { type:'doughnut', data:{ labels:['Fees','Premium','Ads'], datasets:[{ data:[40,40,20], backgroundColor:['#00F5A0', '#8B5CF6', '#FFB800'], borderWidth:0 }]}, options:{ maintainAspectRatio:false, plugins:{legend:{position:'bottom',labels:{color:colors.text}}} }});
     }
 
     initCharts('overview');
+
+    // Theme Toggle Logic
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+      
+      // Re-render active tab charts for theme sync
+      const activeTab = document.querySelector('.tab-content.active').id;
+      initCharts(activeTab);
+    }
+    function updateThemeIcon(theme) {
+      const icon = document.querySelector('#themeToggle i');
+      if (icon) {
+        icon.setAttribute('data-lucide', theme === 'light' ? 'moon' : 'sun');
+        if (window.lucide) lucide.createIcons();
+      }
+    }
+    (function () {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      document.addEventListener('DOMContentLoaded', () => updateThemeIcon(savedTheme));
+    })();
 </script>
 </body>
 </html>

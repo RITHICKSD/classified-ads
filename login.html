@@ -129,7 +129,7 @@
       border-color: rgba(255, 255, 255, 0.2);
       transform: scale(1.02);
     }
-    .btn-social img { width: 18px; }
+    .btn-social img { width: 18px; height: 18px; object-fit: contain; }
 
     .form-extras {
       display: flex;
@@ -171,8 +171,11 @@
     <div class="hero-orb-auth orb-v2"></div>
 
     <div class="auth-card reveal">
-      <div class="auth-controls" style="position: absolute; top: 25px; right: 25px;">
-        <button class="btn-globe" id="rtlToggle" onclick="toggleRTL()" title="Toggle RTL/LTR" style="background: rgba(255,255,255,0.05); border: 1px solid var(--border); width: 44px; height: 44px; border-radius: 12px; color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+      <div class="auth-controls" style="position: absolute; top: 25px; right: 25px; display: flex; gap: 10px;">
+        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle Theme" style="background: rgba(255,255,255,0.05); border: 1px solid var(--border); width: 44px; height: 44px; border-radius: 12px; color: var(--text-primary); cursor: pointer; display: flex; align-items: center; justify-content: center;">
+          <i data-lucide="sun"></i>
+        </button>
+        <button class="btn-globe" id="rtlToggle" onclick="toggleRTL()" title="Toggle RTL/LTR" style="background: rgba(255,255,255,0.05); border: 1px solid var(--border); width: 44px; height: 44px; border-radius: 12px; color: var(--text-primary); cursor: pointer; display: flex; align-items: center; justify-content: center;">
           <i data-lucide="globe"></i>
         </button>
       </div>
@@ -239,6 +242,33 @@
       e.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     revealElements.forEach(el => observer.observe(el));
+
+    // Theme Toggle Logic
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+    }
+
+    function updateThemeIcon(theme) {
+      const icon = document.querySelector('#themeToggle i');
+      if (icon) {
+        icon.setAttribute('data-lucide', theme === 'light' ? 'moon' : 'sun');
+        if (window.lucide) lucide.createIcons();
+      }
+    }
+
+    (function () {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      document.addEventListener('DOMContentLoaded', () => {
+        updateThemeIcon(savedTheme);
+      });
+    })();
+
   </script>
 </body>
 
