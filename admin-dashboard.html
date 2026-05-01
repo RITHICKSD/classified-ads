@@ -87,7 +87,6 @@
             <button class="dash-nav-item" onclick="switchTab('users', this)"><i data-lucide="users-2"></i> <span>User Control</span></button>
             <button class="dash-nav-item" onclick="switchTab('verification', this)"><i data-lucide="clipboard-check"></i> <span>Verification Desk</span></button>
             <button class="dash-nav-item" onclick="switchTab('disputes', this)"><i data-lucide="alert-octagon"></i> <span>Dispute Center</span></button>
-            <button class="dash-nav-item" onclick="switchTab('nodes', this)"><i data-lucide="server"></i> <span>Cluster Health</span></button>
             <button class="dash-nav-item" onclick="switchTab('revenue', this)"><i data-lucide="banknote"></i> <span>Global Liquidity</span></button>
             <button class="dash-nav-item" onclick="switchTab('config', this)"><i data-lucide="terminal"></i> <span>System Config</span></button>
         </nav>
@@ -209,30 +208,6 @@
                 </div>
             </div>
 
-            <!-- 5. CLUSTER HEALTH (15+ Items) -->
-            <div id="nodes" class="tab-content">
-                <div class="dash-stat-grid">
-                    <div class="dash-card"><h5>Total Nodes</h5><h3>420</h3><i data-lucide="cpu" style="color:#00F5A0; width:12px;"></i></div>
-                    <div class="dash-card"><h5>Avg CPU Load</h5><h3>24%</h3><i data-lucide="activity" style="color:#00F5A0; width:12px;"></i></div>
-                    <div class="dash-card"><h5>Memory Used</h5><h3>82%</h3><i data-lucide="database" style="color:#FF3CAC; width:12px;"></i></div>
-                    <div class="dash-card"><h5>Request/sec</h5><h3>12.1K</h3><i data-lucide="zap" style="color:#8B5CF6; width:12px;"></i></div>
-                    <div class="dash-card"><h5>Errors (24H)</h5><h3>12</h3><i data-lucide="shield-alert" style="color:#FF3CAC; width:12px;"></i></div>
-                    <div class="dash-card"><h5>Sync Offset</h5><h3>12ms</h3><i data-lucide="refresh-cw" style="color:#00F5A0; width:12px;"></i></div>
-                </div>
-                <div class="grid-primary">
-                    <div class="box"><h4>Cluster Performance (Radar)</h4><div style="height:350px;"><canvas id="admNodeRadar"></canvas></div></div>
-                    <div class="box"><h4>Node Distribution</h4><div style="height:350px;"><canvas id="admNodePie"></canvas></div></div>
-                </div>
-                <div class="box">
-                    <h3>Global Edge Status (9-15)</h3>
-                    <div class="grid-four" style="margin-top:20px;">
-                        <div class="dash-card"><h5>LHR-01 (London)</h5><p style="color:#00F5A0;">Operational</p></div>
-                        <div class="dash-card"><h5>NYC-02 (NY)</h5><p style="color:#00F5A0;">Operational</p></div>
-                        <div class="dash-card"><h5>TKO-01 (Tokyo)</h5><p style="color:#FFB800;">High Latency</p></div>
-                        <div class="dash-card"><h5>SGP-01 (Sing)</h5><p style="color:#00F5A0;">Operational</p></div>
-                    </div>
-                </div>
-            </div>
 
             <!-- 6. GLOBAL LIQUIDITY (15+ Items) -->
             <div id="revenue" class="tab-content">
@@ -289,8 +264,8 @@
         document.getElementById(targetId).classList.add('active');
         btn.classList.add('active');
 
-        const titles = { overview:"Platform HQ", users:"User Control", verification:"Verification Desk", disputes:"Dispute Center", nodes:"Cluster Health", revenue:"Global Liquidity", config:"System Configuration" };
-        const descs = { overview:"Master control for Global AdVerse Operations.", users:"Manage roles, bans, and activity metrics for all members.", verification:"Review identity documents and biometric sync status.", disputes:"Intercept and resolve marketplace transaction conflicts.", nodes:"Monitor edge cluster performance and API latency.", revenue:"Track platform GMV, tax reserves, and payment flow.", config:"Modify global environment keys and security thresholds." };
+        const titles = { overview:"Platform HQ", users:"User Control", verification:"Verification Desk", disputes:"Dispute Center", revenue:"Global Liquidity", config:"System Configuration" };
+        const descs = { overview:"Master control for Global AdVerse Operations.", users:"Manage roles, bans, and activity metrics for all members.", verification:"Review identity documents and biometric sync status.", disputes:"Intercept and resolve marketplace transaction conflicts.", revenue:"Track platform GMV, tax reserves, and payment flow.", config:"Modify global environment keys and security thresholds." };
         
         document.getElementById('tabTitle').innerText = titles[targetId];
         document.getElementById('tabDesc').innerText = descs[targetId];
@@ -337,7 +312,6 @@
         if(tab === 'overview') renderOverview();
         else if(tab === 'verification') renderKyc();
         else if(tab === 'disputes') renderDisputes();
-        else if(tab === 'nodes') renderNodes();
         else if(tab === 'revenue') renderRevenue();
     }
 
@@ -368,14 +342,6 @@
         chartStore.admDisputePie = new Chart(document.getElementById('admDisputePie').getContext('2d'), { type:'pie', data:{ labels:['Bounced','Service','Fraud'], datasets:[{ data:[50,30,20], backgroundColor:['#FFB800','#8B5CF6','#FF3CAC'], borderWidth:0 }]}, options:{ maintainAspectRatio:false, plugins:{legend:{position:'bottom',labels:{color:colors.text}}} }});
     }
 
-    function renderNodes() {
-        if(chartStore.admNodeRadar) chartStore.admNodeRadar.destroy();
-        const colors = getChartColors();
-        chartStore.admNodeRadar = new Chart(document.getElementById('admNodeRadar').getContext('2d'), { type:'radar', data:{ labels:['CPU','RAM','IO','Net','Auth','API'], datasets:[{ label:'LHR-01', data:[80,70,90,60,85,95], borderColor:'#00F5A0', backgroundColor:'rgba(0,245,160,0.1)' }]}, options:{ maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{r:{grid:{color:colors.grid},angleLines:{color:colors.grid},pointLabels:{color:colors.text}}} }});
-        
-        if(chartStore.admNodePie) chartStore.admNodePie.destroy();
-        chartStore.admNodePie = new Chart(document.getElementById('admNodePie').getContext('2d'), { type:'doughnut', data:{ labels:['Cloud','Edge','Bare'], datasets:[{ data:[70,20,10], backgroundColor:['#00F5A0','#8B5CF6','#FF3CAC'], borderWidth:0 }]}, options:{ maintainAspectRatio:false, plugins:{legend:{position:'bottom',labels:{color:colors.text}}} }});
-    }
 
     function renderRevenue() {
         if(chartStore.admRevBar) chartStore.admRevBar.destroy();

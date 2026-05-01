@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en" id="html-root">
 <head>
     <meta charset="UTF-8"/>
@@ -86,7 +86,6 @@
         <nav class="dash-nav">
             <button class="dash-nav-item active" onclick="switchTab('overview', this)"><i data-lucide="layout-dashboard"></i> <span>Overview</span></button>
             <button class="dash-nav-item" onclick="switchTab('ads', this)"><i data-lucide="layers"></i> <span>My Active Ads</span></button>
-            <button class="dash-nav-item" onclick="switchTab('performance', this)"><i data-lucide="bar-chart-3"></i> <span>Performance</span></button>
             <button class="dash-nav-item" onclick="switchTab('inbox', this)"><i data-lucide="mail"></i> <span>Inquiry Inbox</span></button>
             <button class="dash-nav-item" onclick="switchTab('verification', this)"><i data-lucide="shield-check"></i> <span>Verification</span></button>
             <button class="dash-nav-item" onclick="switchTab('wallet', this)"><i data-lucide="wallet"></i> <span>Payout Vault</span></button>
@@ -174,25 +173,6 @@
                 </div>
             </div>
 
-            <!-- 3. PERFORMANCE (15 Items) -->
-            <div id="performance" class="tab-content">
-                <div class="dash-stat-grid">
-                    <div class="dash-card"><h5>CTR Avg</h5><h3>4.8%</h3><i data-lucide="mouse-pointer-2" style="color:#00F5A0; width:12px;"></i></div>
-                    <div class="dash-card"><h5>Inquiry ROI</h5><h3>8.4x</h3><i data-lucide="dollar-sign" style="color:#8B5CF6; width:12px;"></i></div>
-                    <div class="dash-card"><h5>Retention</h5><h3>92%</h3><i data-lucide="users" style="color:#FFB800; width:12px;"></i></div>
-                    <div class="dash-card"><h5>Avg Deal Size</h5><h3>$45K</h3><i data-lucide="briefcase" style="color:#FF3CAC; width:12px;"></i></div>
-                    <div class="dash-card"><h5>Search Rank</h5><h3>#12</h3><i data-lucide="trending-up" style="color:#8B5CF6; width:12px;"></i></div>
-                    <div class="dash-card"><h5>Net Profit</h5><h3>$182K</h3><div class="trend" style="color:#00F5A0;">All-time High</div></div>
-                </div>
-                <div class="grid-primary">
-                    <div class="box"><h4>Historical Growth Matrix</h4><div style="height:350px;"><canvas id="perfLine"></canvas></div></div>
-                    <div class="box"><h4>Platform Distribution</h4><div style="height:350px;"><canvas id="perfDoughnut"></canvas></div></div>
-                </div>
-                <div class="box">
-                   <h4>Conversion Funnel Analytics (8-15)</h4>
-                   <div style="height:300px;"><canvas id="perfBar"></canvas></div>
-                </div>
-            </div>
 
             <!-- 4. INBOX HUB (15 Items) -->
             <div id="inbox" class="tab-content">
@@ -311,8 +291,8 @@
         document.getElementById(targetId).classList.add('active');
         btn.classList.add('active');
 
-        const titles = { overview:"Command Center", ads:"Inventory Manager", performance:"Merchant Analytics", inbox:"Lead Inbox", verification:"Trust Protocol", wallet:"Payout Vault", settings:"System Preferences" };
-        const descs = { overview:"Operational overview of your merchant ecosystem.", ads:"Manage, boost, and analyze your active marketplace listings.", performance:"Deep-dive into click-rates, lead velocity, and revenue KPIs.", inbox:"Manage lead connectivity and sentiment analytics.", verification:"Identity biogas security and blockchain node integrity.", wallet:"Secure transaction ledger and liquidity controls.", settings:"Configure your global presence and system credentials." };
+        const titles = { overview:"Command Center", ads:"Inventory Manager", inbox:"Lead Inbox", verification:"Trust Protocol", wallet:"Payout Vault", settings:"System Preferences" };
+        const descs = { overview:"Operational overview of your merchant ecosystem.", ads:"Manage, boost, and analyze your active marketplace listings.", inbox:"Manage lead connectivity and sentiment analytics.", verification:"Identity biogas security and blockchain node integrity.", wallet:"Secure transaction ledger and liquidity controls.", settings:"Configure your global presence and system credentials." };
         
         document.getElementById('tabTitle').innerText = titles[targetId];
         document.getElementById('tabDesc').innerText = descs[targetId];
@@ -370,7 +350,6 @@
     function initCharts(tab) {
         if(tab === 'overview') renderOverview();
         else if(tab === 'ads') renderAds();
-        else if(tab === 'performance') renderPerformance();
         else if(tab === 'inbox') renderInbox();
         else if(tab === 'verification') renderVerification();
         else if(tab === 'wallet') renderWallet();
@@ -398,17 +377,6 @@
         chartStore.adsPie = new Chart(document.getElementById('adsPie').getContext('2d'), { type:'pie', data:{ labels:['Premium','Standard','Free'], datasets:[{ data:[50,30,20], backgroundColor:['#8B5CF6','#00F5A0','#FFB800'], borderWidth:0 }]}, options:{ maintainAspectRatio:false, plugins:{legend:{position:'bottom',labels:{color:colors.text}}} }});
     }
 
-    function renderPerformance() {
-        if(chartStore.perfLine) chartStore.perfLine.destroy();
-        const colors = getChartColors();
-        chartStore.perfLine = new Chart(document.getElementById('perfLine').getContext('2d'), { type:'line', data:{ labels:['Q1','Q2','Q3','Q4'], datasets:[{ data:[12000,45000,38000,84000], borderColor:'#FFB800', tension:0.3, pointRadius:5 }]}, options:{ maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{y:{grid:{color:colors.grid},ticks:{color:colors.text}},x:{ticks:{color:colors.text}}} }});
-        
-        if(chartStore.perfDoughnut) chartStore.perfDoughnut.destroy();
-        chartStore.perfDoughnut = new Chart(document.getElementById('perfDoughnut').getContext('2d'), { type:'doughnut', data:{ labels:['App','Web','API'], datasets:[{ data:[60,30,10], backgroundColor:['#8B5CF6','#00F5A0','#FF3CAC'], borderWidth:0 }]}, options:{ maintainAspectRatio:false, plugins:{legend:{position:'bottom',labels:{color:colors.text}}} }});
-        
-        if(chartStore.perfBar) chartStore.perfBar.destroy();
-        chartStore.perfBar = new Chart(document.getElementById('perfBar').getContext('2d'), { type:'bar', data:{ labels:['Awareness','Consideration','Inquiry','Deal'], datasets:[{ data:[1000,600,320,80], backgroundColor:['rgba(139,92,246,0.3)','rgba(0,245,160,0.3)','rgba(255,184,0,0.3)','rgba(255,60,172,0.3)'], borderColor:colors.grid, borderWidth:0.5 }]}, options:{ maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{y:{display:false},x:{ticks:{color:colors.text}}} }});
-    }
 
     function renderInbox() {
         if(chartStore.inboxHeat) chartStore.inboxHeat.destroy();
