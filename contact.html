@@ -70,8 +70,8 @@
       <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle Theme">
         <i data-lucide="sun"></i>
       </button>
-      <button class="btn-globe" id="rtlToggle" onclick="toggleRTL()" title="Toggle RTL/LTR">
-        <i data-lucide="globe"></i>
+      <button class="lang-toggle" id="rtlToggle" onclick="toggleRTL()" title="Toggle RTL/LTR">
+        LTR
       </button>
       <a href="login.html" class="btn-post" style="text-decoration: none;">Login</a>
       <button class="hamburger" id="hamburger" onclick="openMobileNav()">
@@ -297,9 +297,22 @@
     lucide.createIcons();
 
     function toggleRTL() {
-      const body = document.body;
-      body.classList.toggle('rtl');
-      document.getElementById('html-root').setAttribute('dir', body.classList.contains('rtl') ? 'rtl' : 'ltr');
+      const html = document.documentElement;
+      const currentDir = html.getAttribute('dir') || 'ltr';
+      const newDir = currentDir === 'ltr' ? 'rtl' : 'ltr';
+      html.setAttribute('dir', newDir);
+      localStorage.setItem('dir', newDir);
+      updateRTLElements(newDir);
+    }
+
+    function updateRTLElements(dir) {
+      const btn = document.getElementById('rtlToggle');
+      if (btn) btn.innerText = dir === 'ltr' ? 'LTR' : 'RTL';
+      if (dir === 'rtl') {
+        document.body.classList.add('rtl');
+      } else {
+        document.body.classList.remove('rtl');
+      }
     }
     function openMobileNav() {
       document.getElementById('mobileNav').classList.add('open');
@@ -348,8 +361,12 @@
     (function () {
       const savedTheme = localStorage.getItem('theme') || 'dark';
       document.documentElement.setAttribute('data-theme', savedTheme);
+      const savedDir = localStorage.getItem('dir') || 'ltr';
+      document.documentElement.setAttribute('dir', savedDir);
+
       document.addEventListener('DOMContentLoaded', () => {
         updateThemeIcon(savedTheme);
+        updateRTLElements(savedDir);
         highlightNav();
       });
     })();

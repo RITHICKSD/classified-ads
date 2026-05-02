@@ -135,22 +135,39 @@ footer a {
     opacity: 0.25 !important;
 }
 
-.theme-toggle {
-    background: none;
+.theme-toggle, .lang-toggle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--border);
     color: var(--text-muted);
-    border-radius: 8px;
-    padding: 8px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all var(--transition);
+    flex-shrink: 0;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
-.theme-toggle:hover {
+.theme-toggle:hover, .lang-toggle:hover {
     border-color: var(--accent-purple);
     color: var(--accent-purple);
+    transform: scale(1.05);
+}
+
+.lang-toggle {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+[data-theme="light"] .theme-toggle, 
+[data-theme="light"] .lang-toggle {
+    background: rgba(0, 0, 0, 0.03);
+    color: var(--text-muted);
 }
 
 

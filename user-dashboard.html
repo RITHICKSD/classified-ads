@@ -94,11 +94,11 @@
         <div style="margin-top:auto; padding-top:20px; display:flex; flex-direction:column; align-items:center; gap:12px;">
             <a href="index.html" class="dash-nav-item" style="color:#FF3CAC; width:100%;"><i data-lucide="log-out"></i> <span>Sign Out</span></a>
             <div style="display:flex; gap:10px; justify-content:center;">
-              <button onclick="toggleTheme()" id="themeToggle" title="Toggle Theme" style="background:transparent; border:none; color:#9999CC; cursor:pointer; display:flex; align-items:center; justify-content:center; padding:10px; transition:0.3s;" onmouseover="this.style.color='#FFB800'" onmouseout="this.style.color='#9999CC'">
+              <button onclick="toggleTheme()" id="themeToggle" title="Toggle Theme" class="theme-toggle">
                   <i data-lucide="sun" style="width:20px; height:20px;"></i>
               </button>
-              <button onclick="toggleDirection()" title="Toggle LTR / RTL" style="background:transparent; border:none; color:#9999CC; cursor:pointer; display:flex; align-items:center; justify-content:center; padding:10px; transition:0.3s;" onmouseover="this.style.color='#8B5CF6'" onmouseout="this.style.color='#9999CC'">
-                  <i data-lucide="globe" style="width:20px; height:20px;"></i>
+              <button onclick="toggleDirection()" id="rtlToggle" title="Toggle LTR / RTL" class="lang-toggle">
+                  LTR
               </button>
             </div>
         </div>
@@ -315,11 +315,18 @@
         const currentDir = root.getAttribute('dir') || 'ltr';
         const newDir = currentDir === 'ltr' ? 'rtl' : 'ltr';
         root.setAttribute('dir', newDir);
+        localStorage.setItem('dir', newDir);
+        updateRTLElements(newDir);
+    }
+
+    function updateRTLElements(dir) {
+        const btn = document.getElementById('rtlToggle');
+        if (btn) btn.innerText = dir.toUpperCase();
         
         // Handle Sidebar Alignment for RTL
         const sidebar = document.getElementById('sidebar');
         const content = document.querySelector('.dash-content');
-        if(newDir === 'rtl') {
+        if(dir === 'rtl') {
             sidebar.style.right = '0';
             sidebar.style.left = 'auto';
             sidebar.style.borderRight = 'none';
@@ -433,7 +440,13 @@
     (function () {
       const savedTheme = localStorage.getItem('theme') || 'dark';
       document.documentElement.setAttribute('data-theme', savedTheme);
-      document.addEventListener('DOMContentLoaded', () => updateThemeIcon(savedTheme));
+      const savedDir = localStorage.getItem('dir') || 'ltr';
+      document.documentElement.setAttribute('dir', savedDir);
+      
+      document.addEventListener('DOMContentLoaded', () => {
+        updateThemeIcon(savedTheme);
+        updateRTLElements(savedDir);
+      });
     })();
 </script>
 </body>
