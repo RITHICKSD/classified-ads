@@ -13,25 +13,25 @@
         .dash-sidebar { width: 280px; background: #0E0E2C; border-right: 1px solid rgba(139,82,246,0.2); display: flex; flex-direction: column; padding: 30px 20px; position: fixed; height: 100vh; z-index: 1000; transition: 0.4s; overflow-y: auto; }
         .dash-nav { flex: 1; margin-top: 40px; }
         .dash-nav-item { display: flex; align-items: center; gap: 15px; padding: 14px 18px; color: #9999CC; text-decoration: none; border-radius: 15px; margin-bottom: 6px; font-weight: 600; transition: 0.3s; cursor: pointer; border: none; background: transparent; width: 100%; text-align: left; }
-        .dash-nav-item:hover, .dash-nav-item.active { background: rgba(0,245,160,0.1); color: #00F5A0; }
+        .dash-nav-item:hover, .dash-nav-item.active { background: rgba(255, 184, 0, 0.1); color: #FFB800; }
         .dash-nav-item i { width: 18px; height: 18px; }
-        .dash-content { flex: 1; margin-left: 280px; padding: 40px 50px; background: radial-gradient(circle at 10% 10%, rgba(0,245,160,0.05), transparent 40%); width: calc(100% - 280px); }
+        .dash-content { flex: 1; margin-left: 280px; padding: 40px 50px; background: radial-gradient(circle at 10% 10%, rgba(255, 184, 0, 0.05), transparent 40%); width: calc(100% - 280px); }
         .tab-content { display: none; margin-bottom: 50px; }
         .tab-content.active { display: block; animation: fadeIn 0.4s ease-out forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         .dash-stat-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 15px; margin-bottom: 35px; }
         .dash-card { background: #13133A; border: 1px solid rgba(139,82,246,0.1); padding: 22px; border-radius: 22px; transition: 0.3s; color: #F0F0FF; }
-        .dash-card:hover { border-color: #00F5A0; transform: translateY(-5px); }
+        .dash-card:hover { border-color: #FFB800; transform: translateY(-5px); }
         .dash-card h5 { font-size: 10px; color: #9999CC; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }
         .dash-card h3 { font-size: 20px; font-weight: 800; margin: 0; }
-        .trend { display: flex; align-items: center; gap: 4px; font-size: 11px; margin-top: 10px; color: #00F5A0; }
+        .trend { display: flex; align-items: center; gap: 4px; font-size: 11px; margin-top: 10px; color: #FFB800; }
         
         .box { background: #13133A; border: 1px solid rgba(139,82,246,0.1); padding: 25px; border-radius: 25px; margin-bottom: 30px; }
         .grid-primary { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
         .grid-three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
         .grid-four { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-        .grid-four i, .grid-three i { width: 26px; height: 26px; color: #00F5A0; margin-top: 20px; display: block; margin-left: auto; margin-right: auto; }
+        .grid-four i, .grid-three i { width: 26px; height: 26px; color: #FFB800; margin-top: 20px; display: block; margin-left: auto; margin-right: auto; }
 
         /* Mobile Overlay */
         .dash-overlay { display: none !important; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(10px); z-index: 999; transition: opacity 0.3s; pointer-events: none; opacity: 0; }
@@ -107,14 +107,14 @@
     <main class="dash-content">
         <header style="display:flex; justify-content:space-between; align-items:center; margin-bottom:40px;">
             <div style="display:flex; align-items:center; gap:20px;">
-                <button onclick="toggleSidebar()" class="mobile-only" style="background:#00F5A0; color:#07071A; border:none; padding:10px; border-radius:10px; flex-shrink:0;"><i data-lucide="menu"></i></button>
+                <button onclick="toggleSidebar()" class="mobile-only" style="background:#FFB800; color:#07071A; border:none; padding:10px; border-radius:10px; flex-shrink:0;"><i data-lucide="menu"></i></button>
                 <div>
                     <h1 id="tabTitle" style="font-size:28px; font-weight:800; line-height:1.1;">Platform HQ</h1>
                     <p id="tabDesc" style="color:#9999CC; font-size:14px;">Master control for Global AdVerse Operations.</p>
                 </div>
             </div>
             <div class="desktop-only" style="text-align:right;">
-                <p style="font-size:14px; color:#00F5A0;">ROOT PRIVILEGES</p>
+                <p style="font-size:14px; color:#FFB800;">ROOT PRIVILEGES</p>
                 <small style="color:#9999CC;">Admin ID: #HQ-8822</small>
             </div>
         </header>
@@ -143,7 +143,7 @@
                        <button class="dash-card" style="text-align:center;"><h5>#12 Deploy Patch</h5><i data-lucide="upload-cloud"></i></button>
                        <button class="dash-card" style="text-align:center;"><h5>#13 Verify All</h5><i data-lucide="user-check"></i></button>
                        <button class="dash-card" style="text-align:center;"><h5>#14 Export Logs</h5><i data-lucide="download"></i></button>
-                       <button class="dash-card" style="background:#00F5A0; color:#07071A; text-align:center;"><h5>#15 Force Sync</h5><i data-lucide="refresh-cw"></i></button>
+                       <button class="dash-card" style="background:#FFB800; color:#07071A; text-align:center;"><h5>#15 Force Sync</h5><i data-lucide="refresh-cw"></i></button>
                    </div>
                 </div>
             </div>
@@ -173,10 +173,10 @@
             <div id="verification" class="tab-content">
                  <div class="dash-stat-grid">
                     <div class="dash-card"><h5>KYC Pending</h5><h3>85</h3><i data-lucide="file-warning" style="color:#FFB800; width:12px;"></i></div>
-                    <div class="dash-card"><h5>Bio-Matches</h5><h3>12.1K</h3><i data-lucide="fingerprint" style="color:#00F5A0; width:12px;"></i></div>
+                    <div class="dash-card"><h5>ID-Matches</h5><h3>12.1K</h3><i data-lucide="user-check" style="color:#FFB800; width:12px;"></i></div>
                     <div class="dash-card"><h5>Avg Review Time</h5><h3>1.2h</h3><i data-lucide="timer" style="color:#8B5CF6; width:12px;"></i></div>
                     <div class="dash-card"><h5>Fraud Flaggings</h5><h3>14</h3><i data-lucide="flag" style="color:#FF3CAC; width:12px;"></i></div>
-                    <div class="dash-card"><h5>Auto-Approved</h5><h3>92%</h3><i data-lucide="zap" style="color:#00F5A0; width:12px;"></i></div>
+                    <div class="dash-card"><h5>Auto-Approved</h5><h3>92%</h3><i data-lucide="zap" style="color:#FFB800; width:12px;"></i></div>
                     <div class="dash-card"><h5>Tier 4 Users</h5><h3>15</h3><i data-lucide="award" style="color:#FFB800; width:12px;"></i></div>
                 </div>
                 <div class="grid-primary">
@@ -189,11 +189,11 @@
             <div id="disputes" class="tab-content">
                 <div class="dash-stat-grid">
                     <div class="dash-card"><h5>Open Cases</h5><h3>24</h3><i data-lucide="alert-triangle" style="color:#FF3CAC; width:12px;"></i></div>
-                    <div class="dash-card"><h5>Total Resolved</h5><h3>1.2K</h3><i data-lucide="check-square" style="color:#00F5A0; width:12px;"></i></div>
+                    <div class="dash-card"><h5>Total Resolved</h5><h3>1.2K</h3><i data-lucide="check-square" style="color:#FFB800; width:12px;"></i></div>
                     <div class="dash-card"><h5>Avg Resolution</h5><h3>4.2h</h3><i data-lucide="clock" style="color:#8B5CF6; width:12px;"></i></div>
                     <div class="dash-card"><h5>Refund Total</h5><h3>$48K</h3><i data-lucide="dollar-sign" style="color:#FF3CAC; width:12px;"></i></div>
                     <div class="dash-card"><h5>Escrow Lock</h5><h3>$240K</h3><i data-lucide="lock" style="color:#FFB800; width:12px;"></i></div>
-                    <div class="dash-card"><h5>Success Ratio</h5><h3>94%</h3><i data-lucide="trending-up" style="color:#00F5A0; width:12px;"></i></div>
+                    <div class="dash-card"><h5>Success Ratio</h5><h3>94%</h3><i data-lucide="trending-up" style="color:#FFB800; width:12px;"></i></div>
                 </div>
                 <div class="grid-primary">
                     <div class="box"><h4>Dispute Origin Heatmap</h4><div style="height:350px;"><canvas id="admDisputeLine"></canvas></div></div>
@@ -212,11 +212,11 @@
             <!-- 6. GLOBAL LIQUIDITY (15+ Items) -->
             <div id="revenue" class="tab-content">
                  <div class="dash-stat-grid">
-                    <div class="dash-card"><h5>Total Liquidity</h5><h3>$182.5M</h3><i data-lucide="wallet" style="color:#00F5A0; width:12px;"></i></div>
+                    <div class="dash-card"><h5>Total Liquidity</h5><h3>$182.5M</h3><i data-lucide="wallet" style="color:#FFB800; width:12px;"></i></div>
                     <div class="dash-card"><h5>Tx Velocity</h5><h3>2.4K/h</h3><i data-lucide="arrow-right-left" style="color:#8B5CF6; width:12px;"></i></div>
                     <div class="dash-card"><h5>Avg Commission</h5><h3>4.2%</h3><i data-lucide="percent" style="color:#FFB800; width:12px;"></i></div>
                     <div class="dash-card"><h5>Pending Payouts</h5><h3>$1.2M</h3><i data-lucide="clock" style="color:#FF3CAC; width:12px;"></i></div>
-                    <div class="dash-card"><h5>Gateway Alpha</h5><h3>Active</h3><i data-lucide="link" style="color:#00F5A0; width:12px;"></i></div>
+                    <div class="dash-card"><h5>Gateway Alpha</h5><h3>Active</h3><i data-lucide="link" style="color:#FFB800; width:12px;"></i></div>
                     <div class="dash-card"><h5>Reserve Limit</h5><h3>$24M</h3><i data-lucide="lock" style="color:#FFB800; width:12px;"></i></div>
                 </div>
                 <div class="grid-primary">
@@ -229,9 +229,9 @@
             <!-- 7. SYSTEM CONFIG (15+ Items) -->
             <div id="config" class="tab-content">
                  <div class="dash-stat-grid">
-                    <div class="dash-card"><h5>API Keys Active</h5><h3>1.2K</h3><i data-lucide="key" style="color:#00F5A0; width:12px;"></i></div>
+                    <div class="dash-card"><h5>API Keys Active</h5><h3>1.2K</h3><i data-lucide="key" style="color:#FFB800; width:12px;"></i></div>
                     <div class="dash-card"><h5>Maintenance Mode</h5><h3>OFF</h3><i data-lucide="toggle-right" style="color:#9999CC; width:12px;"></i></div>
-                    <div class="dash-card"><h5>Security Tiers</h5><h3>Advanced</h3><i data-lucide="shield-check" style="color:#00F5A0; width:12px;"></i></div>
+                    <div class="dash-card"><h5>Security Tiers</h5><h3>Advanced</h3><i data-lucide="shield-check" style="color:#FFB800; width:12px;"></i></div>
                     <div class="dash-card"><h5>Global Rate Limit</h5><h3>15K/m</h3><i data-lucide="gauge" style="color:#8B5CF6; width:12px;"></i></div>
                     <div class="dash-card"><h5>Threat Database</h5><h3>9.1M</h3><i data-lucide="database" style="color:#FF3CAC; width:12px;"></i></div>
                     <div class="dash-card"><h5>Staff Audit</h5><h3>Active</h3><i data-lucide="eye" style="color:#FFB800; width:12px;"></i></div>
@@ -246,7 +246,7 @@
                        <button class="dash-card" style="text-align:center;"><h5>#11 Webhooks</h5><i data-lucide="webhook"></i></button>
                        <button class="dash-card" style="text-align:center;"><h5>#12 Geo-Block</h5><i data-lucide="map-pin"></i></button>
                        <button class="dash-card" style="text-align:center;"><h5>#13 Rate Limit</h5><i data-lucide="timer"></i></button>
-                       <button class="dash-card" style="background:#00F5A0; color:#07071A; text-align:center;"><h5>#15 Global Save</h5><i data-lucide="save"></i></button>
+                       <button class="dash-card" style="background:#FFB800; color:#07071A; text-align:center;"><h5>#15 Global Save</h5><i data-lucide="save"></i></button>
                    </div>
                 </div>
             </div>
@@ -265,7 +265,8 @@
         btn.classList.add('active');
 
         const titles = { overview:"Platform HQ", users:"User Control", verification:"Verification Desk", disputes:"Dispute Center", revenue:"Global Liquidity", config:"System Configuration" };
-        const descs = { overview:"Master control for Global AdVerse Operations.", users:"Manage roles, bans, and activity metrics for all members.", verification:"Review identity documents and biometric sync status.", disputes:"Intercept and resolve marketplace transaction conflicts.", revenue:"Track platform GMV, tax reserves, and payment flow.", config:"Modify global environment keys and security thresholds." };
+        const descs = { overview:"Master control for Global AdVerse Operations.", users:"Manage roles, bans, and activity metrics for all members.", verification:"Review identity documents and verification status.", disputes:"Intercept and resolve marketplace transaction conflicts.", revenue:"Track platform GMV, tax reserves, and payment flow.", config:"Modify global environment keys and security thresholds." };
+
         
         document.getElementById('tabTitle').innerText = titles[targetId];
         document.getElementById('tabDesc').innerText = descs[targetId];
@@ -337,7 +338,7 @@
         chartStore.admKyc = new Chart(document.getElementById('admKyc').getContext('2d'), { type:'bar', data:{ labels:['M','T','W','T','F'], datasets:[{ label:'Approvals', data:[65,59,80,81,56], backgroundColor:'#00F5A0', borderRadius:5 }]}, options:{ maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{y:{grid:{color:colors.grid},ticks:{color:colors.text}},x:{ticks:{color:colors.text}}} }});
         
         if(chartStore.admKycPie) chartStore.admKycPie.destroy();
-        chartStore.admKycPie = new Chart(document.getElementById('admKycPie').getContext('2d'), { type:'doughnut', data:{ labels:['Passport','Bio-Finger','Face-ID'], datasets:[{ data:[60,25,15], backgroundColor:['#00F5A0','#8B5CF6','#FFB800'], borderWidth:0 }]}, options:{ maintainAspectRatio:false, plugins:{legend:{position:'bottom',labels:{color:colors.text}}} }});
+        chartStore.admKycPie = new Chart(document.getElementById('admKycPie').getContext('2d'), { type:'doughnut', data:{ labels:['Passport','Gov-ID','Drivers License'], datasets:[{ data:[60,25,15], backgroundColor:['#FFB800','#8B5CF6','#FF3CAC'], borderWidth:0 }]}, options:{ maintainAspectRatio:false, plugins:{legend:{position:'bottom',labels:{color:colors.text}}} }});
     }
 
     function renderDisputes() {

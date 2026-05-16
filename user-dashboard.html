@@ -11,12 +11,12 @@
     <style>
         .dash-body { background: #07071A; margin: 0; color: #F0F0FF; font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; }
         .dash-wrapper { display: flex; min-height: 100vh; }
-        .dash-sidebar { width: 280px; background: #0E0E2C; border-right: 1px solid rgba(139,82,246,0.2); display: flex; flex-direction: column; padding: 30px 20px; position: fixed; height: 100vh; z-index: 1000; transition: 0.4s; overflow-y: auto; }
+        .dash-sidebar { width: 280px; background: #0E0E2C; border-right: 1px solid rgba(255, 184, 0, 0.2); display: flex; flex-direction: column; padding: 30px 20px; position: fixed; height: 100vh; z-index: 1000; transition: 0.4s; overflow-y: auto; }
         .dash-nav { flex: 1; margin-top: 40px; }
         .dash-nav-item { display: flex; align-items: center; gap: 15px; padding: 14px 18px; color: #9999CC; text-decoration: none; border-radius: 15px; margin-bottom: 6px; font-weight: 600; transition: 0.3s; cursor: pointer; border: none; background: transparent; width: 100%; text-align: left; }
-        .dash-nav-item:hover, .dash-nav-item.active { background: rgba(139,92,246,0.1); color: #8B5CF6; }
+        .dash-nav-item:hover, .dash-nav-item.active { background: rgba(255, 184, 0, 0.1); color: #FFB800; }
         .dash-nav-item i { width: 18px; height: 18px; }
-        .dash-content { flex: 1; margin-left: 280px; padding: 40px 50px; background: radial-gradient(circle at 10% 10%, rgba(139,92,246,0.05), transparent 40%); width: calc(100% - 280px); }
+        .dash-content { flex: 1; margin-left: 280px; padding: 40px 50px; background: radial-gradient(circle at 10% 10%, rgba(255, 184, 0, 0.05), transparent 40%); width: calc(100% - 280px); }
         .tab-content { display: none; margin-bottom: 50px; }
         .tab-content.active { display: block; animation: fadeIn 0.4s ease-out forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -115,7 +115,7 @@
                 </div>
             </div>
             <div style="display:flex; gap:15px; align-items:center;">
-                <img src="https://i.pravatar.cc/150?u=merchant4" style="width:40px; height:40px; border-radius:10px; border:2px solid #8B5CF6;"/>
+                <img src="https://i.pravatar.cc/150?u=merchant4" style="width:40px; height:40px; border-radius:10px; border:2px solid #FFB800;"/>
             </div>
         </header>
 
@@ -140,7 +140,7 @@
                     <div class="box"><h5>Market Share</h5><div style="font-size:12px;"><div style="background:#8B5CF6; height:4px; width:80%; border-radius:2px; margin-bottom:10px;"></div><p>Real Estate (80%)</p><div style="background:#00F5A0; height:4px; width:20%; border-radius:2px;"></div><p>Other (20%)</p></div></div>
                     <div class="box"><h5>Security Health</h5><i data-lucide="shield-check" style="color:#00F5A0; width:50px;"></i><p style="font-size:11px; margin-top:10px;">System Protected</p></div>
                 </div>
-                <div class="box"><h4>Recent Hub Log (11-15)</h4><table style="width:100%; border-collapse:collapse; font-size:13px;"><tr style="text-align:left; border-bottom:1px solid rgba(255,255,255,0.05); color:#9999CC;"><th style="padding:10px;">ID</th><th>ACTION</th><th>STATUS</th><th>NODE</th></tr><tr><td style="padding:10px;">#SYNC-01</td><td>BioID Verified</td><td><span style="color:#00F5A0;">Success</span></td><td>LHR-01</td></tr></table></div>
+                <div class="box"><h4>Recent Hub Log (11-15)</h4><table style="width:100%; border-collapse:collapse; font-size:13px;"><tr style="text-align:left; border-bottom:1px solid rgba(255,255,255,0.05); color:#9999CC;"><th style="padding:10px;">ID</th><th>ACTION</th><th>STATUS</th><th>NODE</th></tr><tr><td style="padding:10px;">#SYNC-01</td><td>Elite Verified</td><td><span style="color:#00F5A0;">Success</span></td><td>LHR-01</td></tr></table></div>
             </div>
 
             <!-- 2. MY ADS (15 Items) -->
@@ -205,14 +205,14 @@
                 <div class="dash-stat-grid">
                     <div class="dash-card"><h5>Trust Index</h5><h3>9.8</h3><i data-lucide="award" style="color:#FFB800; width:12px;"></i></div>
                     <div class="dash-card"><h5>KYC Status</h5><h3>Level 3</h3><i data-lucide="check-circle" style="color:#00F5A0; width:12px;"></i></div>
-                    <div class="dash-card"><h5>Bio-Sync</h5><h3>Secured</h3><i data-lucide="fingerprint" style="color:#8B5CF6; width:12px;"></i></div>
+                    <div class="dash-card"><h5>Trust-Sync</h5><h3>Secured</h3><i data-lucide="shield-check" style="color:#FFB800; width:12px;"></i></div>
                     <div class="dash-card"><h5>Doc Shelf Life</h5><h3>320d</h3><i data-lucide="calendar" style="color:#FF3CAC; width:12px;"></i></div>
                     <div class="dash-card"><h5>Cluster Rank</h5><h3>Top 1%</h3><i data-lucide="crown" style="color:#FFB800; width:12px;"></i></div>
                     <div class="dash-card"><h5>Node Sec</h5><h3>AES-256</h3><div class="trend" style="color:#8B5CF6;">Healthy</div></div>
                 </div>
                 <div class="grid-three" style="margin-bottom:30px;">
                     <div class="box" style="text-align:center;"><h4>Reputation Gauge</h4><div style="height:150px;"><canvas id="verifyRep"></canvas></div></div>
-                    <div class="box" style="text-align:center;"><h4>Identity Biometrics</h4><i data-lucide="scan-face" style="width:60px; height:60px; color:#8B5CF6; margin-top:20px;"></i><p>Face-ID Enabled</p></div>
+                    <div class="box" style="text-align:center;"><h4>Identity Trust</h4><i data-lucide="user-check" style="width:60px; height:60px; color:#FFB800; margin-top:20px;"></i><p>Verified Merchant</p></div>
                     <div class="box" style="text-align:center;"><h4>Node Encryption</h4><i data-lucide="lock" style="width:60px; height:60px; color:#00F5A0; margin-top:20px;"></i><p>AES-256 Active</p></div>
                 </div>
                 <!-- Registry Log (9-15) -->
@@ -220,7 +220,7 @@
                    <h3>Audit Trail (9-15)</h3>
                    <div class="grid-four" style="margin-top:20px;">
                        <div class="dash-card"><h5>IP Registry</h5><small>82.52.11.0</small></div>
-                       <div class="dash-card"><h5>Last BioSync</h5><small>2h ago</small></div>
+                       <div class="dash-card"><h5>Last Verified</h5><small>2h ago</small></div>
                        <div class="dash-card"><h5>Auth Hash</h5><small>SHA-512</small></div>
                        <div class="dash-card"><h5>2FA Method</h5><small>Hardware Key</small></div>
                        <button class="dash-card" style="background:#8B5CF6; color:#fff;"><h5>Update Pack</h5><i data-lucide="upload"></i></button>
